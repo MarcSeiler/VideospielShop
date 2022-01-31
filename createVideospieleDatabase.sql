@@ -25,7 +25,7 @@ CREATE TABLE if not exists users (
   kreditkartennummer VARCHAR(16) not null,
   kreditkartendatum VARCHAR(5) not null,
   kreditkartenname VARCHAR(40) not null,
-  sicherheitsnummer int(3) not null,
+  cvv int(3) not null,
   PRIMARY KEY (id), UNIQUE (email)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 select * from users;
