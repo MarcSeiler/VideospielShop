@@ -5,10 +5,11 @@ use videospielshop;
 drop table if exists videospiele;
 CREATE TABLE IF NOT EXISTS videospiele (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    plattform int,
-    titel VARCHAR(20),
+    plattform int not null,
+    titel VARCHAR(20) not null,
     beschreibung VARCHAR(30),
-    preis DECIMAL(10, 2),
+    preis DECIMAL(10, 2) not null,
+    erscheinungsdatum date,
     bildlink VARCHAR(100)
 );    
 select * from videospiele;
@@ -25,7 +26,7 @@ CREATE TABLE if not exists users (
   kreditkartennummer VARCHAR(16) not null,
   kreditkartendatum VARCHAR(5) not null,
   kreditkartenname VARCHAR(40) not null,
-  sicherheitsnummer int(3) not null,
+  cvv int(3) not null,
   PRIMARY KEY (id), UNIQUE (email)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 select * from users;
@@ -44,11 +45,9 @@ CREATE TABLE IF NOT EXISTS rechnungen (
 select * from rechnungen;
 
 
+INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `erscheinungsdatum`, `bildlink`) VALUES ('1', 'CSGO', 'Online multiyplayer shooter', '0.00', '2012-01-01', 'images/csgo.png');
+INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `erscheinungsdatum`, `bildlink`) VALUES ('12', 'God of War', 'Singleplayer adventure game', '49.99', '2022-01-21-', 'images/godofwar.png');
 
-INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `bildlink`) VALUES ('1', 'CSGO', 'Online multiplayer shooter', '00.00', 'images/csgo.png');
-INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `bildlink`) VALUES ('2', 'Forza Horizon 2', 'Online racing simulator', '19.99', 'images/forza2.png');
-INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `bildlink`) VALUES ('3', 'Horizon Forbidden West', 'Singelplayer adventure game', '59.99', 'images/horizon2.png');
-INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `bildlink`) VALUES ('123', 'Dark Souls III', 'Singelplayer adventure game', '59.99', 'images/darksouls3.png');
 
 INSERT INTO `videospielshop`.`users` (`email`, `passwort`, `kreditkartennummer`, `kreditkartendatum`, `kreditkartenname`, `sicherheitsnummer`) VALUES ('test@test.de', '$2y$10$qCgb4MKzbMKAqUU2LOFBQ.wGoAD6yBElFA7V7EPwK.QGCViJjx4mu', '0123 4567 8910 1112', '08.24', 'Fabian Mayer', '331');
 
