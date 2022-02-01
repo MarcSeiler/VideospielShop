@@ -97,4 +97,49 @@ class VideospielshopDBConnection {
             die();
         }
     }
+    
+    
+    public function savevideospiel($id, $plattform, $titel, $beschreibung, $preis, $erscheinungsdatum, $bildlink)
+    {
+        echo $id;
+        if ($id == -1)
+        {
+            var_dump($preis);
+            var_dump($erscheinungsdatum);
+            var_dump($bildlink);
+            
+                    
+            $sql = "insert into videospiele (plattform, titel, beschreibung, preis, erscheinungsdatum, bildlink) values ('$plattform', '$titel', '$beschreibung', '$preis', '$erscheinungsdatum', '$bildlink')";
+            echo $sql;
+            self::$pdo->exec ($sql);
+            return self::$pdo->lastInsertId();
+        }
+        else
+        {
+            var_dump($preis);
+            var_dump($titel);
+            
+            $sql = "update videospiele set plattform = '$plattform', titel='$titel'";
+            
+            if ($beschreibung <> '')
+                $sql = $sql . ", beschreibung='$beschreibung'";
+            
+            if ($preis <> '')
+                $sql = $sql . ", preis='$preis'";
+            
+            if ($erscheinungsdatum <> '')
+                $sql = $sql . ", erscheinungsdatum='$erscheinungsdatum'";
+            
+            if ($bildlink <> '')
+                $sql = $sql . ", bildlink='$bildlink'";
+            
+            
+            $sql = $sql . " where id = $id";
+            echo $sql;
+            self::$pdo->exec ($sql);
+            return $id;
+        }   
+            
+        
+    }
 }

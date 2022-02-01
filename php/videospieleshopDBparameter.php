@@ -48,6 +48,8 @@ class videospieleshopDBparameter{
                 $this->action="neu";
         if (filter_has_var(INPUT_GET, "loeschen"))
                 $this->action="delete";
+        if (filter_has_var(INPUT_GET, "home"))
+                $this->action="home";
         
         $options=array("options" => array("default"=> "asc"));
         $this->order=filter_input(INPUT_GET, "order", FILTER_DEFAULT,$options);
@@ -60,6 +62,7 @@ class videospieleshopDBparameter{
         $this->plattform=filter_input(INPUT_GET, "plattform", FILTER_DEFAULT);
         $this->titel=filter_input(INPUT_GET, "titel", FILTER_DEFAULT);
         $this->beschreibung=filter_input(INPUT_GET, "beschreibung", FILTER_DEFAULT);
+        $this->preis=filter_input(INPUT_GET, "preis", FILTER_DEFAULT);
         
         $options=array("options" => array("default"=> date("Y-m-d")));
         $this->erscheinungsdatum=filter_input(INPUT_GET, "erscheinungsdatum", FILTER_DEFAULT, $options);

@@ -28,10 +28,10 @@ class videospielecontroller
 
 
         $id = -1;
-        $plattform = -1;
+        $plattform = '';
         $titel="";
         $beschreibung="";
-        $preis=-1;
+        $preis='';
         $erscheinungsdatum=date("Y-m-d");
         $bildlink="";
 
@@ -54,7 +54,7 @@ class videospielecontroller
 
         if ($p->action=="speichern")
         {
-            $id=$dbconn->savevideospiel($p->mid, $p->plattform, $p->$titel, $p->beschreibung, $p->preis, $p->erscheinungsdatum, $p->bildlink);
+            $id=$dbconn->savevideospiel($p->mid, $p->plattform, $p->titel, $p->beschreibung, $p->preis, $p->erscheinungsdatum, $p->bildlink);
             $sql = "select * from videospiele where id = $id";
             $rows=$dbconn->query($sql);
             if (sizeof($rows) == 1)
@@ -168,13 +168,16 @@ class videospielecontroller
                 $erscheinungsdatum= $rows[0]["erscheinungsdatum"];
                 $bildlink= $rows[0]["bildlink"];
             }
-
-
+        }
+        
+        if ($p->action == "home")
+        {
+            header("Location: ./login.php");
+            exit;
+        
         }
 
-
-       $mv = new mitarbeiterview($id, $plattform, $titel, $beschreibung, $preis, $erscheinungsdatum, $bildlink,
-               $p->action, $success, $message);
+       $mv = new vidoespieleview($id, $plattform, $titel, $beschreibung, $preis, $erscheinungsdatum, $bildlink, $p->action, $success, $message);
        var_dump($mv);
        echo $mv->render();
     }
