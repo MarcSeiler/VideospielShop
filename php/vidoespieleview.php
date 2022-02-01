@@ -60,15 +60,15 @@ class vidoespieleview
         echo "</tr>\n";
         echo "<tr>\n";
         echo "<td>Plattform:</td>";
-        echo "<td><input type='text' name='plattform' value='$plattform'></td>";
+        echo "<td><input type='text' maxlength='3' placeholder='123' name='plattform' value='$plattform'></td>";
         echo "</tr>\n";
         echo "<tr>\n";
         echo "<td>Titel:</td>";
-        echo "<td><input type='text' name='titel' value='$titel'></td>";
+        echo "<td><input type='text' maxlength='30' name='titel' value='$titel'></td>";
         echo "</tr>\n";
         echo "<tr>\n";
         echo "<td>Beschreibung:</td>";
-        echo "<td><input type='text' name='beschreibung' value='$beschreibung'></td>";
+        echo "<td><input type='text' maxlength='50' value='$beschreibung'></td>";
         echo "</tr>\n";
         echo "<tr>\n";
         echo "<td>Preis:</td>";
@@ -80,52 +80,10 @@ class vidoespieleview
         echo "</tr>\n";
         echo "<tr>\n";
         echo "<td>Bildlink:</td>";
-        echo "<td><input type='text' name='bildlink' placeholder='images/xxx.png' value='$bildlink'></td>";
+        echo "<td><input type='text' name='bildlink' maxlength='50' placeholder='images/xxx.png' value='$bildlink'></td>";
         echo "</tr>\n";
-        /*
-        echo "<tr>\n";
-        echo "<td>Abteilung:</td>";
-        echo "<td><select name='abteilung'>";
-        //$abteilungen = ["Einkauf","Verkauf", "Entwicklung", "Fertigung", "Personal"];
         
-        $abteilungen = $dbconn->getAbteilungen();
-        var_dump($abteilungen);
-        foreach ($abteilungen as $a)
-        {
-            echo "<option value='$a[0]]' ";
-            if ($this->abteilung == $a[0])
-            {
-                echo " selected ";
-            }
-            echo ">$a[0]</option>";
-        }
-        echo "</select>"
-        . "</td>";
-        echo "</tr>\n";
-        echo "<tr>\n";
-        echo "<td>Geschlecht:</td>";
-        echo "<td>\n";
-
-        echo "<input type='radio' name='geschlecht' value='m'";
-        if ($this->geschlecht == "m")
-        {
-            echo " checked ";
-        }
-        echo ">männlich<br>";
-        echo "<input type='radio' name='geschlecht' value='w'";
-        if ($this->geschlecht == "w")
-        {
-            echo " checked ";
-        }
-        echo ">weiblich<br>";
-        echo "<input type='radio' name='geschlecht' value='d'";
-        if ($this->geschlecht == "d")
-        {
-            echo " checked ";
-        }
-        echo ">divers<br>";
-        echo "</td>\n";
-        */
+        
         echo "</tr>\n";
         echo "</table>\n";
         echo "<input type='submit' name='first' value='Anfang'>\n";

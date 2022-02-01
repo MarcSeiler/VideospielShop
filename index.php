@@ -1,3 +1,13 @@
+<?php
+echo "<div class='grid-container'>";
+echo "<div>Test</div>";
+echo "</div>";
+
+
+?>
+
+
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -25,7 +35,7 @@
                 <div>Game 7</div>
                 <div>Game 8</div>
                 <div>Game 9</div>
-              </div>
+            </div>
 
         <!--<form method="get" action="login.html">  
         <button type="submit">Login</button>
