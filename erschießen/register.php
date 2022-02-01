@@ -117,7 +117,7 @@ Kreditkarte: <br>
  | CVV:
 <input type="text" size="5" maxlength="3" name="cvv"><br><br>
  Ablaufdatum:<br>
- <input type="date" size="40" maxlength="250" name="date"><br><br>
+ <input type="text" size="40" maxlength="250" name="date" placeholder="MM/YY"><br><br>
  
 
 Dein Passwort:<br>
