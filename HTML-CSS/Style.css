@@ -1,0 +1,79 @@
+body
+{
+  background-color: #333;
+}
+
+/*Navigation Bar*/
+/*----------------------------------------------------*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: lightgray;
+  color: black;
+}
+/*----------------------------------------------------*/
+
+/*BEAM*/
+/*----------------------------------------------------*/
+.grid-container
+{
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 50px;
+  width: 800px;
+  margin: auto;
+  /*background-color: deepskyblue;*/
+}
+
+.grid-container > div
+{
+  background-color: lightgray;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  padding: 50px;
+  margin: 20px;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #333;
+}
+/*----------------------------------------------------*/
+
+/*Login*/
+/*----------------------------------------------------*/
+  
+/*----------------------------------------------------*/
+
+/*Registrieren*/
+/*----------------------------------------------------*/
+
+/*----------------------------------------------------*/
+
+/*Impressum*/
+/*----------------------------------------------------*/
+
+/*----------------------------------------------------*/
