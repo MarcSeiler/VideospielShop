@@ -18,6 +18,11 @@ if(isset($_GET['register'])) {
     $passwort = $_POST['passwort'];
     $passwort2 = $_POST['passwort2'];
     $cardnum = $_POST['cardnum'];
+    $vorname = $_POST['vorname'];
+    $nachname = $_POST['nachname'];
+    $cvv = $_POST['cvv'];
+    $date = $_POST['date'];
+    
   
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo 'Bitte eine gültige E-Mail-Adresse eingeben<br>';
@@ -27,8 +32,24 @@ if(isset($_GET['register'])) {
         echo 'Bitte ein Passwort angeben<br>';
         $error = true;
     }
-        if(strlen($cardnum) == 0) {
+    if(strlen($cardnum) == 0) {
         echo 'Bitte eine Kreditkartennummer angeben<br>';
+        $error = true;
+    }
+     if(strlen($vorname) == 0) {
+        echo 'Bitte einen Vornamen angeben<br>';
+        $error = true;
+    }
+      if(strlen($nachname) == 0) {
+        echo 'Bitte einen Nachnamen angeben<br>';
+        $error = true;
+    }
+      if(strlen($cvv) == 0) {
+        echo 'Bitte die CVV angeben<br>';
+        $error = true;
+    }
+      if(strlen($date) == 0) {
+        echo 'Bitte ein Datum angeben<br>';
         $error = true;
     }
     
@@ -52,9 +73,8 @@ if(isset($_GET['register'])) {
     if(!$error) {    
         $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
         
-        $statement = $pdo->prepare("INSERT INTO users (email, passwort, kreditkartennummer) VALUES (:email, :passwort, :kreditkartennummer)");
-        $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash, 'kreditkartennummer'=>$cardnum));
-        
+        $statement = $pdo->prepare("INSERT INTO users (email, passwort, kreditkartennummer, vorname, nachname, cvv, kreditkartendatum) VALUES (:email, :passwort, :kreditkartennummer, :vorname, :nachname, :cvv, :kreditkartendatum)");
+        $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash, 'kreditkartennummer'=>$cardnum, 'vorname'=>$vorname, 'nachname'=>$nachname, 'cvv'=>$cvv, 'kreditkartendatum'=>$date));        
         if($result) {        
             echo 'Du wurdest erfolgreich registriert. <a href="login.php">Zum Login</a>';
             $showFormular = false;
@@ -84,11 +104,21 @@ if($showFormular) {
  </script>
     
 <form action="?register=1" method="post">
+    Vorname:<br>
+    <input type="text" size="40" maxlength="250" name="vorname"><br><br>
+ Nachname:<br>
+<input type="text" size="40" maxlength="250" name="nachname"><br><br>
+ 
 E-Mail:<br>
 <input type="email" size="40" maxlength="250" name="email"><br><br>
  
 Kreditkarte: <br>
-<input type="number" size="40" maxlength="250" name="cardnum"><br><br>
+<input type="number" size="40" maxlength="250" name="cardnum">
+ | CVV:
+<input type="text" size="5" maxlength="3" name="cvv"><br><br>
+ Ablaufdatum:<br>
+ <input type="date" size="40" maxlength="250" name="date"><br><br>
+ 
 
 Dein Passwort:<br>
 <input type="password" id="myInput" size="40"  maxlength="250" name="passwort">
@@ -97,12 +127,10 @@ Dein Passwort:<br>
 Passwort wiederholen:<br>
 <input type="password" id="myInput2" size="40" maxlength="250" name="passwort2"><br><br>
  
-<input type="submit" value="Abschicken"> <br>
+<input type="submit" value="Registrieren"> <br>
 <br>
 </form>
- <form method="get" action="login.php">
-    <button type="submit">Login</button>
-</form>
+ Bereits registriert? <a href="login.php">Hier gehts zum Login.</a> 
  
 <?php
 }

@@ -38,16 +38,13 @@ E-Mail:<br>
 <input type="email" size="40" maxlength="250" name="email"><br><br>
  
 Dein Passwort:<br>
-<input type="password" size="40"  maxlength="250" name="passwort"><br>
+<input type="password" size="40"  maxlength="250" name="passwort"><br><br>
  
-<input type="submit" value="Abschicken"> <br> <br>
+<input type="submit" value="Login"> <br> <br>
 </form> 
     
     
-    <p>Not registered yet?</<p> <br>
-<form method="get" action="register.php">   
-<button type="Register">Register</button>
-</form>
+ Noch nicht registriert? <a href="register.php">Hier gehts zum registrieren.</a> 
     
 </body>
 </html>
