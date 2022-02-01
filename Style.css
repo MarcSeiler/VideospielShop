@@ -37,7 +37,81 @@ li a:hover:not(.active) {
 
 /*BEAM*/
 /*----------------------------------------------------*/
-.grid-container
+.buttons
+{
+  text-align: center;
+  transition-duration: 0.4s;
+}
+
+/*----------------------------------------------------*/
+.buttonPS
+{
+  background-color: lightgray;
+  font-size: 24px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.buttonPS:hover
+{
+  background-color: #4c63af;
+  color: white;
+}
+
+/*-------------------------------------*/
+.buttonXB
+{
+  background-color: lightgray;
+  font-size: 24px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.buttonXB:hover
+{
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+/*--------------------------------------*/
+.buttonPC
+{
+  background-color: lightgray;
+  font-size: 24px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.buttonPC:hover
+{
+  background-color: #c24747;
+  color: white;
+}
+
+/*-------------------------------------*/
+.grid-container-text
 {
   display: grid;
   justify-content: space-evenly;
@@ -49,8 +123,9 @@ li a:hover:not(.active) {
   /*background-color: deepskyblue;*/
 }
 
-.grid-container > div
+.grid-container-text > div
 {
+  /*background-size: contain;*/
   background-color: lightgray;
   text-align: center;
   width: 300px;
@@ -60,6 +135,7 @@ li a:hover:not(.active) {
   font-size: 30px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #333;
+  cursor: pointer;
 }
 /*----------------------------------------------------*/
 
