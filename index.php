@@ -1,4 +1,7 @@
+<?php
+session_start();
 
+?>
 
 <html>
     <head>
@@ -6,7 +9,7 @@
         <title>BEAM</title>
         <link rel="stylesheet" href="style.css">
         <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
-        
+
         <script src="Login.js" type="text/javascript" language="javascript"></script>
         </head>
         <body>
@@ -14,7 +17,13 @@
                 <li style="float:left"><a class="active"href="index.php">BEAM</a></li>
                 <li><a href="impressum.php">Impressum</a></li>
                 <li><a href="register.php">Registrieren</a></li>
-                <li><a href="login.php">Login</a></li>
+      <?php
+    if(!isset($_SESSION['userid'])) {
+    echo '<li><a href="login.php">Login</a></li>';
+   
+}else{ echo '<li><a href="logout.php">Logout</a></li>';}
+?>
+                
             </ul>
 
             <div class="buttons">
@@ -31,6 +40,7 @@
         <form method="get" action="register.html">  
         <button type="submit">Register</button>
         </form>-->  
+
         </body>
 
 
@@ -39,6 +49,16 @@
 </html>
 
 <?php
+
+if(!isset($_SESSION['userid'])) {
+    die('');
+}
+ 
+//Abfrage der Nutzer ID vom Login
+$userid = $_SESSION['userid'];
+ echo"USER ID: $userid";
+
+
 
 require_once("php\cls_Autoloader.php");
 

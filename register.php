@@ -6,17 +6,18 @@ $pdo = new PDO('mysql:host=localhost;dbname=videospielshop', 'root', '');
 <html> 
 <head>
   <title>Registrierung</title>  
-<link rel="stylesheet" href="register.css">  
+<link rel="stylesheet" href="Register.css">  
 </head> 
 <body>
     <ul>
                 <li style="float:left"><a class="active"href="index.php">BEAM</a></li>
                 <li><a href="impressum.php">Impressum</a></li>
-                <li><a href="register.php">Registrieren</a></li>
-                <li><a href="login.php">Login</a></li>
+                
+                <div id="link"><li><a href="login.php">Login</a></li></div>
     </ul>
  
 <?php
+
 $showFormular = true; 
  
 if(isset($_GET['register'])) {
@@ -137,11 +138,16 @@ Passwort wiederholen:<br>
 <input class="bregi" type="submit" value="Registrieren"> <br>
 <br>
 </form>
- Bereits registriert? <a href="login.php">Hier gehts zum Login.</a> 
+        Bereits registriert? <a href="login.php">Hier gehts zum Login.</a> <br><br>
  
 <?php
 }
 ?>
+ 
+ <form action="logout.php" method="get">
+     
+     <input class="logout" type="submit" value="Logout">
+ </form>
   </div>
 </body>
 </html>
