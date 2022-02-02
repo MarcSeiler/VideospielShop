@@ -22,7 +22,7 @@ class videospielecontroller
         require_once("php\cls_Autoloader.php");
 
         $p = new videospieleshopDBparameter();
-        var_dump($p);
+        //var_dump($p);
         $dbconn = new VideospielshopDBConnection();
         $pdo=$dbconn->pdo;
 
@@ -172,13 +172,13 @@ class videospielecontroller
         
         if ($p->action == "home")
         {
-            header("Location: ./login.php");
+            header("Location: ./index.php");
             exit;
         
         }
 
        $mv = new vidoespieleview($id, $plattform, $titel, $beschreibung, $preis, $erscheinungsdatum, $bildlink, $p->action, $success, $message);
-       var_dump($mv);
+       //var_dump($mv);
        echo $mv->render();
     }
 }

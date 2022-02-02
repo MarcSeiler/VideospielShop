@@ -1,0 +1,170 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31.01.2022, 11:40:29
+    Author     : z00479sx
+*/
+   
+body
+{
+  background-color: #333;
+}
+
+/*Navigation Bar*/
+/*----------------------------------------------------*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: lightgray;
+  color: black;
+}
+/*----------------------------------------------------*/
+/*BEAM*/
+
+/*BEAM*/
+/*----------------------------------------------------*/
+.buttons
+{
+  text-align: center;
+  transition-duration: 0.4s;
+}
+
+/*----------------------------------------------------*/
+.buttonPS
+{
+  background-color: lightgray;
+  font-size: 24px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+}
+
+.buttonPS:hover
+{
+  background-color: #4c63af;
+  color: white;
+}
+
+/*-------------------------------------*/
+.buttonXB
+{
+  background-color: lightgray;
+  font-size: 24px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+}
+
+.buttonXB:hover
+{
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+/*--------------------------------------*/
+.buttonPC
+{
+  background-color: lightgray;
+  font-size: 24px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+}
+
+.buttonPC:hover
+{
+  background-color: #c24747;
+  color: white;
+}
+
+/*----------------------------------------------------*/
+.grid-container
+{
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 50px;
+  width: 800px;
+  margin: auto;
+  /*background-color: deepskyblue;*/
+}
+
+.grid-container > div
+{
+  background-color: lightgray;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  padding: 50px;
+  margin: 20px;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #333;
+}
+/*----------------------------------------------------*/
+
+/*Login*/
+/*----------------------------------------------------*/
+  
+/*----------------------------------------------------*/
+
+/*Registrieren*/
+/*----------------------------------------------------*/
+
+/*----------------------------------------------------*/
+
+/*Impressum*/
+/*----------------------------------------------------*/
+
+/*----------------------------------------------------*/

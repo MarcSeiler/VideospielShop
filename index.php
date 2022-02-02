@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <html>
@@ -9,7 +8,7 @@ session_start();
         <title>BEAM</title>
         <link rel="stylesheet" href="style.css">
         <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
-
+        
         <script src="Login.js" type="text/javascript" language="javascript"></script>
         </head>
         <body>
@@ -17,13 +16,14 @@ session_start();
                 <li style="float:left"><a class="active"href="index.php">BEAM</a></li>
                 <li><a href="impressum.php">Impressum</a></li>
                 <li><a href="register.php">Registrieren</a></li>
-      <?php
-    if(!isset($_SESSION['userid'])) {
-    echo '<li><a href="login.php">Login</a></li>';
-   
-}else{ echo '<li><a href="logout.php">Logout</a></li>';}
-?>
-                
+                <?php
+                    if(!isset($_SESSION['userid'])) {
+                    echo '<li><a href="login.php">Login</a></li>';
+                    }               
+                    else { 
+                        echo '<li><a href="logout.php">Logout</a></li>';
+                    }
+                ?>
             </ul>
 
             <div class="buttons">
@@ -40,7 +40,6 @@ session_start();
         <form method="get" action="register.html">  
         <button type="submit">Register</button>
         </form>-->  
-
         </body>
 
 
@@ -49,16 +48,6 @@ session_start();
 </html>
 
 <?php
-
-if(!isset($_SESSION['userid'])) {
-    die('');
-}
- 
-//Abfrage der Nutzer ID vom Login
-$userid = $_SESSION['userid'];
- echo"USER ID: $userid";
-
-
 
 require_once("php\cls_Autoloader.php");
 
@@ -121,7 +110,7 @@ else if ($p->action == "last")
 }
 
 
-$sql="select *, id as editid from videospiele where plattform like '%{$p->plattformsort}%' order by id {$p->order} limit " . $offset . "," . $p->limit;
+$sql="select *, id from videospiele where plattform like '%{$p->plattformsort}%' order by id {$p->order} limit " . $offset . "," . $p->limit;
 //echo $sql;
 try
 {
@@ -217,7 +206,7 @@ echo "</div>";
 
 
 //TODO @Fabian: Nur sichtbar wenn man als root angemeldet ist
-echo "<a <button class='buttonVideogamesCreate' href='editvideospiele.php'>Videospiele bearbeiten</button></a>\n";
+
 
 
 
@@ -230,4 +219,19 @@ echo "<a href='index.php?limit=9&offset=$offset&action=previous&plattformsort=$p
 echo "<a href='index.php?limit=9&offset=$offset&action=last&plattformsort=$p->plattformsort'>Letzte</a>\n";
 echo "</div>";
 */
+
+if(!isset($_SESSION['userid'])) {
+    die('');
+}
+else if($_SESSION['useremail'] == "root@root.de")
+{
+    echo "<a <button class='buttonVideogamesCreate' href='editvideospiele.php'>Videospiele bearbeiten</button></a>\n";
+}
+/*
+var_dump($_SESSION);
+//Abfrage der Nutzer ID vom Login
+$userid = $_SESSION['userid'];
+ echo"USER ID: $userid";
+*/
+ 
 ?>

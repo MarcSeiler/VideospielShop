@@ -8,6 +8,7 @@ class videospieleshopDBparameter{
     protected $limit;
     protected $action;
     protected $order;
+    protected $plattformsort;
     protected $mid;
     protected $plattform;
     protected $titel;
@@ -50,6 +51,9 @@ class videospieleshopDBparameter{
                 $this->action="delete";
         if (filter_has_var(INPUT_GET, "home"))
                 $this->action="home";
+        
+        $options=array("options" => array("default"=> "1"));
+        $this->plattformsort=filter_input(INPUT_GET, "plattformsort", FILTER_DEFAULT,$options);
         
         $options=array("options" => array("default"=> "asc"));
         $this->order=filter_input(INPUT_GET, "order", FILTER_DEFAULT,$options);

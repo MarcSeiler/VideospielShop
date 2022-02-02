@@ -38,7 +38,7 @@ class vidoespieleview
         $this->action=$action;
         $this->success = $success;
         $this->message = $message;
-        var_dump($this);
+        //var_dump($this);
     }
     
     public function render()
