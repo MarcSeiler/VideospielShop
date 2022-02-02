@@ -15,7 +15,7 @@ if(isset($_GET['login'])) {
         $_SESSION['userid'] = $user['id'];
         die('Login erfolgreich. Weiter zu <a href="geheim.php">internen Bereich</a>');
     } else {
-        $errorMessage = "E-Mail oder Passwort war ungültig<br>";
+        $errorMessage = '<div class="pwdlogin">E-Mail oder Passwort sind flasch!</div><br><br>';
     }
     
 }
@@ -24,6 +24,13 @@ if(isset($_GET['login'])) {
 <html> 
 <head>
   <title>Login</title>    
+     <ul>
+                <li style="float:left"><a class="active"href="index.php">BEAM</a></li>
+                <li><a href="impressum.php">Impressum</a></li>
+                <li><a href="register.php">Registrieren</a></li>
+                <li><a href="login.php">Login</a></li>
+    </ul>
+ <link rel="stylesheet" href="register.css">  
 </head> 
 <body>
  
@@ -32,7 +39,7 @@ if(isset($errorMessage)) {
     echo $errorMessage;
 }
 ?>
- 
+ <div class="loginform">
 <form action="?login=1" method="post">
 E-Mail:<br>
 <input type="email" size="40" maxlength="250" name="email"><br><br>
@@ -40,11 +47,11 @@ E-Mail:<br>
 Dein Passwort:<br>
 <input type="password" size="40"  maxlength="250" name="passwort"><br><br>
  
-<input type="submit" value="Login"> <br> <br>
+<input class="blogin" type="submit" value="Login"> <br> <br>
 </form> 
     
     
  Noch nicht registriert? <a href="register.php">Hier gehts zum registrieren.</a> 
-    
+ </div>
 </body>
 </html>

@@ -1,0 +1,150 @@
+body
+{
+  background-color: #333;
+}
+
+/*Navigation Bar*/
+/*----------------------------------------------------*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+.loginform{
+text-align: center;
+color: lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+a:visited{
+    color: lightgray;
+}
+
+.bregi{
+    background-color: lightgray;
+  font-size: 16px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 3px;
+  width: 140px;
+  margin: 10px;
+  cursor: pointer;
+}
+.blogin{
+    background-color: lightgray;
+  font-size: 16px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 140px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.email0 {
+text-align: center;
+color: #ff6666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+      
+      .pwd0{
+          text-align: center;
+color: #ff6666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+        .cardnum{
+          text-align: center;
+color: #ff6666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+      .vorname0{
+          text-align: center;
+color: #ff6666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+      
+.nachname0{
+ text-align: center;
+color: #ff6666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+      
+      
+ .cvv{
+          text-align: center;
+color: #ff6666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+      
+      .date0{
+          text-align: center;
+color: #ff6666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+      
+  .pwddouble{
+          text-align: center;
+color: #ff6666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+      
+      
+        .pwdlogin{
+          text-align: center;
+color: #ff6666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+      

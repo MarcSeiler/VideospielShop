@@ -5,9 +5,16 @@ $pdo = new PDO('mysql:host=localhost;dbname=videospielshop', 'root', '');
 <!DOCTYPE html> 
 <html> 
 <head>
-  <title>Registrierung</title>    
+  <title>Registrierung</title>  
+<link rel="stylesheet" href="register.css">  
 </head> 
 <body>
+    <ul>
+                <li style="float:left"><a class="active"href="index.php">BEAM</a></li>
+                <li><a href="impressum.php">Impressum</a></li>
+                <li><a href="register.php">Registrieren</a></li>
+                <li><a href="login.php">Login</a></li>
+    </ul>
  
 <?php
 $showFormular = true; 
@@ -25,36 +32,36 @@ if(isset($_GET['register'])) {
     
   
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo 'Bitte eine gültige E-Mail-Adresse eingeben<br>';
+        echo '<div class="email0">Bitte eine gültige E-Mail-Adresse eingeben</div><br>';
         $error = true;
     }     
     if(strlen($passwort) == 0) {
-        echo 'Bitte ein Passwort angeben<br>';
+        echo '<div class="pwd0">Bitte ein Passwort angeben</div><br>';
         $error = true;
     }
     if(strlen($cardnum) == 0) {
-        echo 'Bitte eine Kreditkartennummer angeben<br>';
+        echo '<div class="cardnum">Bitte eine Kreditkartennummer angeben</div><br>';
         $error = true;
     }
      if(strlen($vorname) == 0) {
-        echo 'Bitte einen Vornamen angeben<br>';
+        echo '<div class="vorname0"Bitte einen Vornamen angeben</div><br>';
         $error = true;
     }
       if(strlen($nachname) == 0) {
-        echo 'Bitte einen Nachnamen angeben<br>';
+        echo '<div class="nachname0"Bitte einen Nachnamen angeben</div><br>';
         $error = true;
     }
       if(strlen($cvv) == 0) {
-        echo 'Bitte die CVV angeben<br>';
+        echo '<div class="cvv0"Bitte die CVV angeben</div><br>';
         $error = true;
     }
       if(strlen($date) == 0) {
-        echo 'Bitte ein Datum angeben<br>';
+        echo '<div class="date0"Bitte ein Datum angeben</div><br>';
         $error = true;
     }
     
     if($passwort != $passwort2) {
-        echo 'Die Passwörter müssen übereinstimmen<br>';
+        echo '<div class="pwddouble">Die Passwörter müssen übereinstimmen</div><br>';
         $error = true;
     }
     
@@ -102,7 +109,7 @@ if($showFormular) {
   }
 }
  </script>
-    
+    <div class="loginform">
 <form action="?register=1" method="post">
     Vorname:<br>
     <input type="text" size="40" maxlength="250" name="vorname"><br><br>
@@ -121,13 +128,13 @@ Kreditkarte: <br>
  
 
 Dein Passwort:<br>
-<input type="password" id="myInput" size="40"  maxlength="250" name="passwort">
-<input type="checkbox" onclick="myFunction()">Show Password<br>
+<input type="password" id="myInput" size="40"  maxlength="250" name="passwort"><br>
+<input type="checkbox" onclick="myFunction()">Show Password<br><br>
  
 Passwort wiederholen:<br>
 <input type="password" id="myInput2" size="40" maxlength="250" name="passwort2"><br><br>
  
-<input type="submit" value="Registrieren"> <br>
+<input class="bregi" type="submit" value="Registrieren"> <br>
 <br>
 </form>
  Bereits registriert? <a href="login.php">Hier gehts zum Login.</a> 
@@ -135,6 +142,6 @@ Passwort wiederholen:<br>
 <?php
 }
 ?>
- 
+  </div>
 </body>
 </html>
