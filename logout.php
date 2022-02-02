@@ -4,7 +4,7 @@
 <head>
   <title>Logout</title>    
 
- <link rel="stylesheet" href="Register.css">  
+ <link rel="stylesheet" href="register.css">  
 </head> 
 <body>
  <?php

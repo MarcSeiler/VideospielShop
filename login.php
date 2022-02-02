@@ -14,7 +14,7 @@ if(isset($_GET['login'])) {
     if ($user !== false && password_verify($passwort, $user['passwort'])) {
          
         $_SESSION['userid'] = $user['id'];
-      
+        $_SESSION['useremail'] = $user['email'];
         header("Location: index.php");
             
         } else {
