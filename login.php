@@ -12,10 +12,12 @@ if(isset($_GET['login'])) {
         
     //Überprüfung des Passworts
     if ($user !== false && password_verify($passwort, $user['passwort'])) {
+         
         $_SESSION['userid'] = $user['id'];
-        $_SESSION['useremail'] = $user['email'];
+      
         header("Location: index.php");
-    } else {
+            
+        } else {
         $errorMessage = '<div class="pwdlogin">E-Mail oder Passwort sind flasch!</div><br><br>';
     }
     

@@ -1,13 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 02.02.2022, 11:11:50
-    Author     : z00479sx
-*/
-
 body
 {
   background-color: #333;
@@ -48,6 +38,15 @@ color: lightgray;
 }
 a:visited{
     color: lightgray;
+}
+
+.LogoutFIN{
+    text-align: Center;
+    font-size: 24px;
+    color: lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 56px 64px;
+  text-decoration: none;
 }
 
 .bregi{

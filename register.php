@@ -6,7 +6,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=videospielshop', 'root', '');
 <html> 
 <head>
   <title>Registrierung</title>  
-<link rel="stylesheet" href="Register.css">  
+<link rel="stylesheet" href="register.css">  
 </head> 
 <body>
     <ul>
@@ -84,7 +84,8 @@ if(isset($_GET['register'])) {
         $statement = $pdo->prepare("INSERT INTO users (email, passwort, kreditkartennummer, vorname, nachname, cvv, kreditkartendatum) VALUES (:email, :passwort, :kreditkartennummer, :vorname, :nachname, :cvv, :kreditkartendatum)");
         $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash, 'kreditkartennummer'=>$cardnum, 'vorname'=>$vorname, 'nachname'=>$nachname, 'cvv'=>$cvv, 'kreditkartendatum'=>$date));        
         if($result) {        
-            echo 'Du wurdest erfolgreich registriert. <a href="login.php">Zum Login</a>';
+                  header("Location: index.php");
+       
             $showFormular = false;
         } else {
             echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
@@ -144,10 +145,6 @@ Passwort wiederholen:<br>
 }
 ?>
  
- <form action="logout.php" method="get">
-     
-     <input class="logout" type="submit" value="Logout">
- </form>
   </div>
 </body>
 </html>
