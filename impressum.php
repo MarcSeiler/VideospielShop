@@ -10,7 +10,6 @@
         <body>
             <ul>
                 <li style="float:left"><a class="active"href="index.php">BEAM</a></li>
-                <li><a href="impressum.php">Impressum</a></li>
                 <li><a href="register.php">Registrieren</a></li>
                 <li><a href="login.php">Login</a></li>
             </ul>
