@@ -1,11 +1,10 @@
 
 
-
 <html>
     <head>
         <meta charset="UTF-8">
         <title>BEAM</title>
-        <link rel="stylesheet" href="Style.css">
+        <link rel="stylesheet" href="style.css">
         <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
         
         <script src="Login.js" type="text/javascript" language="javascript"></script>
@@ -18,21 +17,14 @@
                 <li><a href="login.php">Login</a></li>
             </ul>
 
-            
-           <!--<<div class="grid-container">
-                <div name="titel">Game 1</div>
-                <div>Game 2</div>
-                <div>Game 3</div>  
-                <div>Game 4</div>
-                <div>Game 5</div>
-                <div>Game 6</div>  
-                <div>Game 7</div>
-                <div>Game 8</div>
-                <div>Game 9</div>
+            <div class="buttons">
+                <a <button class="buttonPS" onclick="href='index.php?limit=9&offset=0&action=first&plattformsort=2'">Playstation</button></a>
+                <a <button class="buttonXB" onclick="href='index.php?limit=9&offset=0&action=first&plattformsort=3'">Xbox</button></a>             
+                <a <button class="buttonPC" onclick="href='index.php?limit=9&offset=0&action=first&plattformsort=1'">PC</button></a>
             </div>
-            -->  
             
             
+               
         <!--<form method="get" action="login.html">  
         <button type="submit">Login</button>
         </form>  
@@ -54,6 +46,8 @@ $p = new videospieleshopDBparameter();
 
 $dbconn = new VideospielshopDBConnection();
 $pdo=$dbconn->pdo;
+
+$p->limit = 9;
 
 $sql="select count(*) as anzahl from videospiele";
 //echo $sql;
@@ -106,7 +100,8 @@ else if ($p->action == "last")
         $offset=0;
 }
 
-$sql="select *, id as editid from videospiele order by id {$p->order} limit " . $offset . "," . $p->limit-1;
+
+$sql="select *, id as editid from videospiele where plattform like '%{$p->plattformsort}%' order by id {$p->order} limit " . $offset . "," . $p->limit;
 //echo $sql;
 try
 {
@@ -151,17 +146,16 @@ for ($i=0; $i<sizeof($rows);$i++)
      * */
     
     
-    
-    
     echo "<div>";
     foreach ($rows[$i] as $k=>$v)
     {
             
-            if ($k=="editid")
+            if ($k=="preis")
             {
                 //echo "<td><a href=editmitarbeiter.php?mid=$v>edit</a></td>";
+                echo "<a <button class='buttonbuy' href='index.php'>$v €</button></a>";
             }
-            else if($k != "id" && $k != "bildlink" && $k != "plattform")
+            else if($k != "id" && $k != "bildlink" && $k != "plattform" && $k != "preis")
             {
                 //var_dump($v);
 
@@ -179,8 +173,10 @@ for ($i=0; $i<sizeof($rows);$i++)
   //  var_dump($rows[$i]);
 }
 echo "</div>";
+
 //<img src='./images/csgo.png' hier einfügen“>.
 
+/*
 echo "<input type='submit' name='first' value='Anfang'>\n";
 echo "<input type='submit' name='next' value='Nächste'>\n";
 echo "<input type='submit' name='previous' value='Vorherige'>\n";
@@ -188,9 +184,30 @@ echo "<input type='submit' name='last' value='Letzte'>\n";
 //echo "<div class='grid-container'>";
 //echo "<div>Test</div>";
 //echo "</div>";
+*/
 
-echo "<a href='index.php?limit=10&offset=0&action=first'>Anfang</a>\n";
-echo "<a href='index.php?limit=10&offset=$offset&action=next'>Nächste</a>\n";
-echo "<a href='index.php?limit=10&offset=$offset&action=previous'>Vorherige</a>\n";
-echo "<a href='index.php?limit=10&offset=$offset&action=last'>Letzte</a>\n";
+
+
+echo "<div class='buttons'>";
+echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=0&action=first&plattformsort=$p->plattformsort'>Anfang</button></a>";
+echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=$offset&action=next&plattformsort=$p->plattformsort'>Nächste</button></a>";
+echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=$offset&action=previous&plattformsort=$p->plattformsort'>Vorherige</button></a>";
+echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=$offset&action=last&plattformsort=$p->plattformsort'>Letzte</button></a>";
+echo "</div>";
+
+
+//TODO @Fabian: Nur sichtbar wenn man als root angemeldet ist
+echo "<a <button class='buttonVideogamesCreate' href='editvideospiele.php'>Videospiele bearbeiten</button></a>\n";
+
+
+
+/*
+echo "<div class='buttons'>";
+
+echo "<a href='index.php?limit=9&offset=0&action=first&plattformsort=$p->plattformsort'>Anfang</a>\n";
+echo "<a href='index.php?limit=9&offset=$offset&action=next&plattformsort=$p->plattformsort'>Nächste</a>\n";
+echo "<a href='index.php?limit=9&offset=$offset&action=previous&plattformsort=$p->plattformsort'>Vorherige</a>\n";
+echo "<a href='index.php?limit=9&offset=$offset&action=last&plattformsort=$p->plattformsort'>Letzte</a>\n";
+echo "</div>";
+*/
 ?>
