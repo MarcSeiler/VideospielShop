@@ -13,6 +13,8 @@ Passwort: ''
 
 Admin-Benutzer Registriere: email: root@root.de, passwort: root
 
+Als Admin-Benutzer einloggen->
+
 => Videospiele hinzufügen funktion auf index.php freigeschaltet
 
 Cheat:
