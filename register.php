@@ -59,19 +59,12 @@ if(isset($_GET['register'])) {
       if(strlen($date) == 0) {
         echo '<div class="date0"Bitte ein Datum angeben</div><br>';
         $error = true;
-    }
-    if(!is_numeric($cardnum)){
-        
-        echo '<div class="vorname0">Ihre Kreditkartennummer besteht nicht aus Zahlen!</div>';
-        $error=true;
-        
-    }
-    
-    $arr1 = str_split($date, 2);
+    }else{
+                $arr1 = str_split($date, 2);
     $arr2 = str_split($date, 3);
     $teil = $arr1[0];
     $teil2 = $arr2[1];
-    if($teil>12 || $teil <= 1){
+        if($teil>12 || $teil <= 1){
         echo'<div class="vorname0">Ihr ablaufdatum stimmt nicht </div>';
         $error=true;
     }
@@ -85,7 +78,22 @@ if(isset($_GET['register'])) {
         echo'<div class="vorname0">Das Ablaufjahr ist flasch!</div>';
         $error=true;
     }
+    }
+    if(!is_numeric($cardnum)){
+        
+        echo '<div class="vorname0">Ihre Kreditkartennummer besteht nicht aus Zahlen!</div>';
+        $error=true;
+        
+    }
     
+    
+
+
+    if(preg_match('~[0-9]+~', $vorname) || preg_match('~[0-9]+~', $nachname) ){
+     echo '<div class="vorname0">Ihr Nach oder Vorname beinhaltet Zahlen!</div>';
+    $error=true;
+    
+}
     
         if(!is_numeric($cvv)){
         
