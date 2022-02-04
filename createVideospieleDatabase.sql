@@ -13,8 +13,11 @@ CREATE TABLE IF NOT EXISTS videospiele (
     bildlink VARCHAR(50)
 );    
 select * from videospiele;
+
+/*
 select * from videospiele where plattform like '%3%' order by id;
 select * from videospiele where id = 1;
+*/
 
 Drop table if exists users;
 CREATE TABLE if not exists users ( 
@@ -31,8 +34,11 @@ CREATE TABLE if not exists users (
   PRIMARY KEY (id), UNIQUE (email)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 select * from users;
+
+/*
 select id from users where email = 'root@root.de';
 select vorname, nachname, email, kreditkartennummer from users where id = 1;
+*/
 
 drop table if exists rechnungen;
 CREATE TABLE IF NOT EXISTS rechnungen (
@@ -44,6 +50,7 @@ CREATE TABLE IF NOT EXISTS rechnungen (
     kaufdatum TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ); 
 select * from rechnungen;
+/* 
 insert into rechnungen (id_spiel, id_plattform, id_kunde, spielkey) values ('1', '3', '2', '1234-1234-5678-5678');
 
 INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `erscheinungsdatum`, `bildlink`) VALUES ('1', 'CSGO', 'Online multiplayer shooter', '0.00', '2012-01-01', 'images/csgo.png');
@@ -59,6 +66,6 @@ INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`
 INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `erscheinungsdatum`, `bildlink`) VALUES ('123', 'Call of Duty: Black Ops 4', 'Online multiplayer shooter', '49.99', '2018-08-03', 'images/callofduty4.png');
 INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `erscheinungsdatum`, `bildlink`) VALUES ('123', 'Fifa 22', 'Online soccer simulatior', '59.99', '2021-09-26', 'images/fifa22.png');
 INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `erscheinungsdatum`, `bildlink`) VALUES ('123', 'Fallout 4', 'Singelplayer action rpg', '35.99', '2025-11-10', 'images/fallout4.png');
-
+*/
 
 
