@@ -6,7 +6,7 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <title>BEAM</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="Style.css">
         <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
         
         <script src="Login.js" type="text/javascript" language="javascript"></script>
@@ -201,15 +201,15 @@ for ($i=0; $i<sizeof($rows);$i++)
     if( isset($_SESSION['userid'])) {
         if($p->plattformsort == '1')
         {
-            echo "<div class='preisLinkRed'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id'>Kaufen: $preis €</button></a></div>";   
+            echo "<div class='preisLinkRed'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort'>Kaufen: $preis €</button></a></div>";   
         }
         else if($p->plattformsort == '2')
         {
-            echo "<div class='preisLinkBlue'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id'>Kaufen: $preis €</button></a></div>";   
+            echo "<div class='preisLinkBlue'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort'>Kaufen: $preis €</button></a></div>";   
         }
         else
         {
-            echo "<div class='preisLinkGreen'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id'>Kaufen: $preis €</button></a></div>";   
+            echo "<div class='preisLinkGreen'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort'>Kaufen: $preis €</button></a></div>";   
         }   
                               
     }

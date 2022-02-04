@@ -225,12 +225,13 @@ li a:hover:not(.active) {
     width: 300px;
     height: 300px;
     margin: 20px;
+    transition-duration: 0.5s;
 }
 
+
 .button-wrap:hover{
-    background-color: black;
-    opacity: 0.5;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0); 
+    
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0), 0 12px 40px 0 rgba(0, 0, 0); 
 }
 
 
@@ -343,6 +344,8 @@ li a:hover:not(.active) {
 img
 {
     max-width: 300px;
+    background-color: black;
+    opacity: 0.7;
 }
 
 /*
@@ -384,8 +387,33 @@ img:hover
 
 /*----------------------------------------------------*/
 
-/*Registrieren*/
+/*Kauf Videospiel*/
 /*----------------------------------------------------*/
+.kaufContainer
+{
+    float: left;
+    text-align: left;
+    background-color: lightgray;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 50px;
+    padding: 20px;
+    max-width: 49%;
+    height: 81%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: auto;
+}
+
+.bildlinkKaufInhalt
+{
+    float: left;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 10px;
+    max-width: 40%;
+}
+
+
 
 /*----------------------------------------------------*/
 

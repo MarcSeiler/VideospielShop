@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -12,10 +15,16 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            require_once("php\cls_Autoloader.php");
+        if(isset($_SESSION['userid'])) {
+                        
+            if($_SESSION['useremail'] == "root@root.de")
+            {
+                require_once("php\cls_Autoloader.php");
 
-            $mc= new videospielecontroller();
-            $mc->run();
+                $mc= new videospielecontroller();
+                $mc->run();
+            }
+        }
         ?>
     </body>
 </html>

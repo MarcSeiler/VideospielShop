@@ -9,6 +9,7 @@ class videospieleshopDBparameter{
     protected $action;
     protected $order;
     protected $plattformsort;
+    protected $kaufen;
     protected $mid;
     protected $plattform;
     protected $titel;
@@ -76,6 +77,9 @@ class videospieleshopDBparameter{
         
         $options=array("options" => array("default"=> "1"));
         $this->plattformsort=filter_input(INPUT_GET, "plattformsort", FILTER_DEFAULT,$options);
+        
+        $options=array("options" => array("default"=> "0"));
+        $this->kaufen=filter_input(INPUT_GET, "kaufen", FILTER_DEFAULT,$options);
         
         
         //var_dump($this);

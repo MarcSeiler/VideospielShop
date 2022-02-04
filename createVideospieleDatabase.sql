@@ -31,25 +31,20 @@ CREATE TABLE if not exists users (
   PRIMARY KEY (id), UNIQUE (email)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 select * from users;
-
-INSERT INTO `videospielshop`.`users` (`email`, `passwort`) VALUES ('root@root.de', 'root');
-INSERT INTO `videospielshop`.`users` (`email`, `passwort`, `vorname`, `nachname`, `kreditkartennummer`, `kreditkartendatum`, `cvv`) VALUES ('marc.seiler@siemens-energy.com', 'geheim', 'Marc', 'Seiler', '1234567891234567', '08/24', '331');
-
-
+select id from users where email = 'root@root.de';
+select vorname, nachname, email, kreditkartennummer from users where id = 1;
 
 drop table if exists rechnungen;
 CREATE TABLE IF NOT EXISTS rechnungen (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_spiel int,
-    id_kunde int,
-    datum DATE NOT NULL,
-    CONSTRAINT fk_rechnungen_kunden FOREIGN KEY (id_kunde)
-        REFERENCES kunden (id),
-	CONSTRAINT fk_rechnungen_videospiele FOREIGN KEY (id_spiel)
-        REFERENCES videospiele (id)
+    id_spiel int not null,
+    id_plattform int not null, 
+    id_kunde int not null,
+    spielkey VARCHAR(19) not null,
+    kaufdatum TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ); 
 select * from rechnungen;
-
+insert into rechnungen (id_spiel, id_plattform, id_kunde, spielkey) values ('1', '3', '2', '1234-1234-5678-5678');
 
 INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `erscheinungsdatum`, `bildlink`) VALUES ('1', 'CSGO', 'Online multiplayer shooter', '0.00', '2012-01-01', 'images/csgo.png');
 INSERT INTO `videospielshop`.`videospiele` (`plattform`, `titel`, `beschreibung`, `preis`, `erscheinungsdatum`, `bildlink`) VALUES ('12', 'God of War', 'Singleplayer adventure game', '49.99', '2022-01-21', 'images/godofwar2022.png');
