@@ -67,11 +67,25 @@ if(isset($_GET['register'])) {
         
     }
     
-    $arr1 = str_split($date, 3);
+    $arr1 = str_split($date, 2);
+    $arr2 = str_split($date, 3);
     $teil = $arr1[0];
-    if($teil>12){
-        echo'<div class="vorname0">Ihr ablaufdatum hat mehr als 12 Monate</div>';
+    $teil2 = $arr2[1];
+    if($teil>12 || $teil <= 1){
+        echo'<div class="vorname0">Ihr ablaufdatum stimmt nicht </div>';
+        $error=true;
     }
+    
+    if(!is_numeric($teil)){
+        echo'<div class="vorname0">Der Ablaufmonat ist falsch</div>';
+
+        $error=true;
+    }
+    if(!is_numeric($teil2)){
+        echo'<div class="vorname0">Das Ablaufjahr ist flasch!</div>';
+        $error=true;
+    }
+    
     
         if(!is_numeric($cvv)){
         
