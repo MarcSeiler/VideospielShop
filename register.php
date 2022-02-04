@@ -66,6 +66,13 @@ if(isset($_GET['register'])) {
         $error=true;
         
     }
+    
+    $arr1 = str_split($date, 3);
+    $teil = $arr1[0];
+    if($teil>12){
+        echo'<div class="vorname0">Ihr ablaufdatum hat mehr als 12 Monate</div>';
+    }
+    
         if(!is_numeric($cvv)){
         
         echo '<div class="vorname0">Ihre Sicherheitsnummer besteht nicht aus Zahlen!</div>';
@@ -86,7 +93,7 @@ if(isset($_GET['register'])) {
         $user = $statement->fetch();
         
         if($user !== false) {
-            echo 'Diese E-Mail-Adresse ist bereits vergeben<br>';
+            echo '<div class="vorname0"> Diese E-Mail-Adresse ist bereits vergeben<br></div>';
             $error = true;
         }    
     }
