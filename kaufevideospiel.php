@@ -118,22 +118,8 @@ for ($i=0; $i<sizeof($rows);$i++)
     echo "<div class='erscheinungsdatumKaufInhalt'>Veröffentlichung: $erscheinungsdatum</div>";
     
     echo "<div class='preisKauf'>Preis</div>";
-    echo "<div class='preisKaufInhalt' href='kaufevideospiel.php?mid=$id'>$preis €</div>"; 
+    echo "<div class='preisKaufInhalt' href='kaufevideospiel.php?mid=$id'>$preis €</div>";
     
-    if( isset($_SESSION['userid'])) {
-        echo "<div class='kaufenKauf'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort&kaufen=1'>Kauf bestätigen</button></a></div>";
-    }    
-  //  var_dump($rows[$i]);
-}
-      
-echo "<div class='buttons'>";
-echo "<a <button class='buttonNavigationKauf' href='index.php?plattformsort=$p->plattformsort'><spanA>Zurück</spanA></button></a>";
-echo "</div>";  
-
-//--------------------- Bis hier und dann noch...
-
-if($p->kaufen == 1)
-{
     $idvideospiel = $p->mid;
     
     $sql="select id from users where email = '{$_SESSION['useremail']}'";
@@ -213,7 +199,28 @@ if($p->kaufen == 1)
     echo "<div class='kundeEmailKaufInhalt'>$KundeEmail</div>";
     
     echo "<div class='kundekreditkartennummerKauf'>Kartennummer </div>";
-    echo "<div class='kundekreditkartennummerKaufInhalt'>Kartennummer: **** **** **** $KundeKartennummerGeheim</div>";
+    echo "<div class='kundekreditkartennummerKaufInhalt'>**** **** **** $KundeKartennummerGeheim</div>";
+    
+    
+    
+    
+    
+    
+    if( isset($_SESSION['userid'])) {
+        echo "<div class='kaufenKauf'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort&kaufen=1'>Kauf bestätigen</button></a></div>";
+    }    
+  //  var_dump($rows[$i]);
+}
+      
+echo "<div class='buttons'>";
+echo "<a <button class='buttonNavigationKauf' href='index.php?plattformsort=$p->plattformsort'><spanA>Zurück</spanA></button></a>";
+echo "</div>";  
+
+//--------------------- Bis hier und dann noch...
+
+if($p->kaufen == 1)
+{
+    
     
 }   
 
