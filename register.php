@@ -60,6 +60,19 @@ if(isset($_GET['register'])) {
         echo '<div class="date0"Bitte ein Datum angeben</div><br>';
         $error = true;
     }
+    if(!is_numeric($cardnum)){
+        
+        echo '<div class="vorname0">Ihre Kreditkartennummer besteht nicht aus Zahlen!</div>';
+        $error=true;
+        
+    }
+        if(!is_numeric($cvv)){
+        
+        echo '<div class="vorname0">Ihre Sicherheitsnummer besteht nicht aus Zahlen!</div>';
+        $error=true;
+        
+    }
+    
     
     if($passwort != $passwort2) {
         echo '<div class="pwddouble">Die Passwörter müssen übereinstimmen</div><br>';
@@ -122,11 +135,11 @@ E-Mail:<br>
 <input type="email" size="40" maxlength="250" name="email"><br><br>
  
 Kreditkarte: <br>
-<input type="number" size="40" maxlength="250" name="cardnum">
+<input type="text" size="20" maxlength="16" minlength="16" name="cardnum" placeholder="Nummer ohne Leerzeichen eingeben">
  | CVV:
-<input type="text" size="5" maxlength="3" name="cvv"><br><br>
+<input type="text" size="5" maxlength="3" minlength="3" name="cvv"><br><br>
  Ablaufdatum:<br>
- <input type="text" size="40" maxlength="250" name="date" placeholder="MM/YY"><br><br>
+ <input type="text" size="40" maxlength="5" minlength="5" name="date" placeholder="MM/YY"><br><br>
  
 
 Dein Passwort:<br>
