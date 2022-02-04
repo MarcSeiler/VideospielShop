@@ -65,7 +65,11 @@ if(isset($_GET['register'])) {
     $teil = $arr1[0];
     $teil2 = $arr2[1];
         if($teil>12 || $teil <= 1){
-        echo'<div class="vorname0">Ihr ablaufdatum stimmt nicht </div>';
+        echo'<div class="vorname0">Ihr Monat stimmt nicht </div>';
+        $error=true;
+    }
+            if($teil2 < 21){
+        echo'<div class="vorname0">Ihre Kreditkarte ist abgelaufen</div>';
         $error=true;
     }
     
