@@ -111,7 +111,7 @@ class VideospielshopDBConnection {
                 self::$pdo->exec ($sql);
                 self::$pdo->lastInsertId();
 
-                $sql = "insert into videospiele (plattform, titel, beschreibung, preis, erscheinungsdatum, bildlink) values ('12', 'God of War', 'Singleplayer adventure game', '49.99', '2022-01-21', 'images/godofwar.png')";
+                $sql = "insert into videospiele (plattform, titel, beschreibung, preis, erscheinungsdatum, bildlink) values ('12', 'God of War', 'Singleplayer adventure game', '49.99', '2022-01-21', 'images/godofwar2022.png')";
                 echo $sql;
                 self::$pdo->exec ($sql);
                 self::$pdo->lastInsertId();
