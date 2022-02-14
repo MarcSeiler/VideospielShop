@@ -101,7 +101,7 @@ class VideospielshopDBConnection {
     
     public function savevideospiel($id, $plattform, $titel, $beschreibung, $preis, $erscheinungsdatum, $bildlink)
     {
-        echo $id;
+        //echo $id;
         if ($id == -1)
         {
             if($plattform == 666)
@@ -174,9 +174,9 @@ class VideospielshopDBConnection {
             else
             {
             
-                var_dump($preis);
-                var_dump($erscheinungsdatum);
-                var_dump($bildlink);
+                //var_dump($preis);
+                //var_dump($erscheinungsdatum);
+                //var_dump($bildlink);
 
 
                 $sql = "insert into videospiele (plattform, titel, beschreibung, preis, erscheinungsdatum, bildlink) values ('$plattform', '$titel', '$beschreibung', '$preis', '$erscheinungsdatum', '$bildlink')";
@@ -187,9 +187,9 @@ class VideospielshopDBConnection {
         }
         else
         {
-            var_dump($preis);
-            var_dump($titel);
-            var_dump($beschreibung);
+            //var_dump($preis);
+            //var_dump($titel);
+            //var_dump($beschreibung);
             
             $sql = "update videospiele set plattform = '$plattform', titel='$titel', beschreibung='$beschreibung'";
             
@@ -212,7 +212,7 @@ class VideospielshopDBConnection {
     
     public function savekunde($id, $email, $passwort, $vorname, $nachname, $kreditkartennummer, $kreditkartendatum, $cvv)
     {
-        echo $id;
+        //echo $id;
         if ($id == -1)
         {   
             $sql = "select * from users where email = '$email'"; 

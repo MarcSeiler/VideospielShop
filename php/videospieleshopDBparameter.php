@@ -75,7 +75,7 @@ class videospieleshopDBparameter{
         
         $this->bildlink=filter_input(INPUT_GET, "bildlink", FILTER_DEFAULT);
         
-        $options=array("options" => array("default"=> "1"));
+        $options=array("options" => array("default"=> "0"));
         $this->plattformsort=filter_input(INPUT_GET, "plattformsort", FILTER_DEFAULT,$options);
         
         $options=array("options" => array("default"=> "0"));

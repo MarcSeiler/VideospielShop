@@ -1,7 +1,9 @@
 <?php 
 session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=videospielshop', 'root', '');
- 
+require_once("php\cls_Autoloader.php");
+$dbconn = new VideospielshopDBConnection();
+$pdo = $dbconn->pdo;
+
 if(isset($_GET['login'])) {
     $email = $_POST['email'];
     $passwort = $_POST['passwort'];

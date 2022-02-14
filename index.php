@@ -123,41 +123,32 @@ else if ($p->action == "last")
         $offset=0;
 }
 
-/*
-if(isset($_COOKIE["COOKIE_Plattform"]))
+$plattform_cookie = "plattform_cookie";
+if(isset($_COOKIE[$plattform_cookie]) && $p->plattformsort == '0')
 {
-    $plattformsort = $_COOKIE["COOKIE_Plattform"];
-    
-    if($plattformsort == '1')
-    {
-        echo "<hr class='squareRed'></hr>";
-    }
-    else if($plattformsort == '2')
-    {
-        echo "<hr class='squareBlue'></hr>";
-    }
-    else if(plattformsort == '3')
-    {
-        echo "<hr class='squareGreen'></hr>";
-    }
+    //var_dump($_COOKIE[$plattform_cookie]);
+    $p->plattformsort = $_COOKIE[$plattform_cookie];
 }
-else {
-    if($p->plattformsort == '1')
-    {
-        echo "<hr class='squareRed'></hr>";
-    }
-    else if($p->plattformsort == '2')
-    {
-        echo "<hr class='squareBlue'></hr>";
-    }
-    else if($p->plattformsort == '3')
-    {
-        echo "<hr class='squareGreen'></hr>";
-    }
+
+if($p->plattformsort == '1')
+{
+    setcookie($plattform_cookie, '1', time() + (3600 * 24), '/');
+    echo "<hr class='squareRed'></hr>";
 }
- * */
+else if($p->plattformsort == '2')
+{
+    setcookie($plattform_cookie, '2', time() + (3600 * 24), '/');
+    echo "<hr class='squareBlue'></hr>";
+}
+else if($p->plattformsort == '3')
+{
+    setcookie($plattform_cookie, '3', time() + (3600 * 24), '/');
+    echo "<hr class='squareGreen'></hr>";
+}
 
 
+
+/*
 if($p->plattformsort == '1')
 {
     echo "<hr class='squareRed'></hr>";
@@ -170,7 +161,7 @@ else if($p->plattformsort == '3')
 {
     echo "<hr class='squareGreen'></hr>";
 }
-
+*/
 
 
 
