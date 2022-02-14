@@ -228,12 +228,10 @@ li a:hover:not(.active) {
     transition-duration: 0.5s;
 }
 
-
-.button-wrap:hover{
-    
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0), 0 12px 40px 0 rgba(0, 0, 0); 
+.button-wrap:hover
+{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0), 0 12px 40px 0 rgba(0, 0, 0);
 }
-
 
 .ui-btn
 {
@@ -244,7 +242,6 @@ li a:hover:not(.active) {
     text-align: center;
     line-height: 2;
     color: transparent;
-    cursor: pointer;
     transition-duration: 0.5s;
     max-width: 300px;
     max-height: 300px;
@@ -254,12 +251,15 @@ li a:hover:not(.active) {
 {
     color: white;
     font-size: 20px;
+    
 }
 
 .container
 {
     position: relative;
     bottom: 300px;
+    height: 120px;
+    cursor: default;
 }
 
 .preisLinkRed
@@ -315,7 +315,7 @@ li a:hover:not(.active) {
     position: relative;
     bottom: 170px;
     text-decoration: none;
-    color: lightgray;
+    color: white;
     background-color: #c24747;
     padding: 5px;
     opacity: 0.9;
@@ -325,7 +325,7 @@ li a:hover:not(.active) {
     position: relative;
     bottom: 170px;
     text-decoration: none;
-    color: lightgray;
+    color: white;
     background-color: #4c63af;
     padding: 5px;
     opacity: 0.9;
@@ -335,7 +335,7 @@ li a:hover:not(.active) {
     position: relative;
     bottom: 170px;
     text-decoration: none;
-    color: lightgray;
+    color: white;
     background-color: #4CAF50;
     padding: 5px;
     opacity: 0.9;
@@ -347,15 +347,6 @@ img
     background-color: black;
     opacity: 0.7;
 }
-
-/*
-img:hover
-{
-    background-color: black;
-    opacity: 0.5;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0);
-}
-*/
 
 
 /*Color Square*/
@@ -387,19 +378,21 @@ img:hover
 
 /*----------------------------------------------------*/
 
-/*Kauf Videospiel*/
+/*KaufeVideospiel*/
 /*----------------------------------------------------*/
+
 .kaufContainer
 {
     float: left;
+    right: 10%;
     text-align: left;
     background-color: lightgray;
     margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
     padding: 20px;
-    max-width: 49%;
-    height: 81%;
+    width: 600px;
+    height: 560px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     overflow: auto;
 }
@@ -407,13 +400,58 @@ img:hover
 .bildlinkKaufInhalt
 {
     float: left;
+    left: 10%;
     margin-top: 20px;
-    margin-left: 50px;
-    margin-right: 10px;
-    max-width: 40%;
+    margin-left: 120px;
+    margin-bottom: 20px;
+    max-width: 600px;
 }
 
+.kaufenKauf
+{
+    text-align: center;
+    background-color: black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    transition-duration: 0.5s;
+}
 
+.kaufenKauf:hover
+{
+    background-color: #333;
+    
+}
+
+.kaufAGBs
+{
+    font-size: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.buttons
+{
+    margin-top: 80px;
+}
+
+.gekauftMeldung
+{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
 
 /*----------------------------------------------------*/
 
