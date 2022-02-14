@@ -218,7 +218,11 @@ if(isset($_SESSION['userid']))
 
         if( isset($_SESSION['userid'])) {
             echo "<div class='kaufenKauf'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort&kaufen=1'>Kauf bestätigen</button></a></div>";
-        }    
+            echo "<div class='KaufAGBs'> *beim Click auf den 'Kauf bestätigen'-Button erklären Sie sich einverstanden mit unseren AGBs und verkaufen uns Ihre Seele.</div>";            
+        }
+        else {
+             echo "<div class='keineAnmeldung'> Bitte melden Sie sich an, um einen Kauf abzuschließen</div>";
+        }
       //  var_dump($rows[$i]);
     }
 
@@ -234,14 +238,16 @@ if(isset($_SESSION['userid']))
     {
 
         $gamekey = rand(0, 9) . rand(0, 9) .rand(0, 9) . rand(0, 9) . '-' . rand(0, 9) . rand(0, 9) .  rand(0, 9) .  rand(0, 9) .  '-' . rand(0, 9) . rand(0, 9) .  rand(0, 9) .  rand(0, 9) .  '-' . rand(0, 9) . rand(0, 9) .  rand(0, 9) .  rand(0, 9);
-        var_dump($gamekey);
+        //var_dump($gamekey);
 
         $sql = "insert into rechnungen (id_spiel, id_plattform, id_kunde, spielkey) values ('$idvideospiel', '$p->plattformsort', '$idkunde', '$gamekey')";
-        echo $sql;
+        //echo $sql;
         $pdo->exec ($sql);
         $pdo->lastInsertId();
         
-        echo "alert('Hallo')";
+        echo "<div class='KaufeErfolgreich'>Kauf erfolgreich!</div>";
+        echo "<div class='GameKey'>Dein Game-Key: $gamekey</div>";
+        echo "<div class='GameKeyInfo'>Falls Sie Ihren Key verlieren, können Sie ihn auf der Profil-Seite unter Rechnungen nachlesen.</div>";
 
     }   
 }

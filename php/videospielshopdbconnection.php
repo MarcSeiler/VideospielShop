@@ -180,7 +180,7 @@ class VideospielshopDBConnection {
 
 
                 $sql = "insert into videospiele (plattform, titel, beschreibung, preis, erscheinungsdatum, bildlink) values ('$plattform', '$titel', '$beschreibung', '$preis', '$erscheinungsdatum', '$bildlink')";
-                echo $sql;
+                //echo $sql;
                 self::$pdo->exec ($sql);
                 return self::$pdo->lastInsertId();
             }
@@ -204,7 +204,65 @@ class VideospielshopDBConnection {
             
             
             $sql = $sql . " where id = $id";
-            echo $sql;
+            //echo $sql;
+            self::$pdo->exec ($sql);
+            return $id;
+        }   
+    }
+    
+    public function savekunde($id, $email, $passwort, $vorname, $nachname, $kreditkartennummer, $kreditkartendatum, $cvv)
+    {
+        echo $id;
+        if ($id == -1)
+        {   
+            $sql = "select * from users where email = '$email'"; 
+            try
+            {
+                $res=$pdo->query($sql,PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+
+                echo 'Abfrage fehlgeschlagen: ' . $e->getMessage();
+                die();       
+            }
+            $rows=$res->fetchall();
+            
+            if(sizeof($rows) == 0)
+            {
+                $sql = "insert into users (plattform, titel, beschreibung, preis, erscheinungsdatum, bildlink) values ('$plattform', '$titel', '$beschreibung', '$preis', '$erscheinungsdatum', '$bildlink')";
+                //echo $sql;
+                self::$pdo->exec ($sql);
+                return self::$pdo->lastInsertId();   
+            }
+            else {
+                echo "<div class='EmailVegeben'>Email wurde schon vergeben!</div>";
+            }            
+        }
+        else
+        {
+            $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
+            
+            $sql = "update users set email = '$email'";
+            
+            if ($passwort <> '')
+                $sql = $sql . ", passwort='$passwort_hash'";
+            
+            if ($vorname <> '')
+                $sql = $sql . ", vorname='$vorname'";
+            
+            if ($nachname <> '')
+                $sql = $sql . ", nachname='$nachname'";
+            
+            if ($kreditkartennummer <> '')
+                $sql = $sql . ", kreditkartennummer='$kreditkartennummer'";
+                        
+            if ($kreditkartendatum <> '')
+                $sql = $sql . ", kreditkartendatum='$kreditkartendatum'";
+            
+            if ($cvv <> '')
+                $sql = $sql . ", cvv='$cvv'";
+                        
+            $sql = $sql . " where id = $id";
+            //echo $sql;
             self::$pdo->exec ($sql);
             return $id;
         }   

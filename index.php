@@ -30,7 +30,7 @@ session_start();
                         
                         if($_SESSION['useremail'] == "root@root.de")
                         {
-                            echo "<li><a <button class='buttonUserCreate' href='editvideospiele.php'>Kunden bearbeiten</button></a></li>";
+                            echo "<li><a <button class='buttonUserCreate' href='editkunden.php'>Kunden bearbeiten</button></a></li>";
                             echo "<li><a <button class='buttonVideogamesCreate' href='editvideospiele.php'>Videospiele bearbeiten</button></a></li>";
                         }
                     }
@@ -123,6 +123,40 @@ else if ($p->action == "last")
         $offset=0;
 }
 
+/*
+if(isset($_COOKIE["COOKIE_Plattform"]))
+{
+    $plattformsort = $_COOKIE["COOKIE_Plattform"];
+    
+    if($plattformsort == '1')
+    {
+        echo "<hr class='squareRed'></hr>";
+    }
+    else if($plattformsort == '2')
+    {
+        echo "<hr class='squareBlue'></hr>";
+    }
+    else if(plattformsort == '3')
+    {
+        echo "<hr class='squareGreen'></hr>";
+    }
+}
+else {
+    if($p->plattformsort == '1')
+    {
+        echo "<hr class='squareRed'></hr>";
+    }
+    else if($p->plattformsort == '2')
+    {
+        echo "<hr class='squareBlue'></hr>";
+    }
+    else if($p->plattformsort == '3')
+    {
+        echo "<hr class='squareGreen'></hr>";
+    }
+}
+ * */
+
 
 if($p->plattformsort == '1')
 {
@@ -136,6 +170,8 @@ else if($p->plattformsort == '3')
 {
     echo "<hr class='squareGreen'></hr>";
 }
+
+
 
 
 $sql="select *, id from videospiele where plattform like '%{$p->plattformsort}%' order by id {$p->order} limit " . $offset . "," . $p->limit;

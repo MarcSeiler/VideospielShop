@@ -51,7 +51,6 @@ class videospielecontroller
 
         }
 
-
         if ($p->action=="speichern")
         {
             //var_dump($p);
