@@ -27,6 +27,7 @@ session_start();
                     }
                     
                     if(isset($_SESSION['userid'])) {
+                        echo "<li><a <button class='buttonUserCreate' href='profil.php'>{$_SESSION['useremail']}</button></a></li>";
                         
                         if($_SESSION['useremail'] == "root@root.de")
                         {
