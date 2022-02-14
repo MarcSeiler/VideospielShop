@@ -25,6 +25,8 @@ class videospieleshopDBparameterKunden {
     protected $kreditkartennummer;
     protected $kreditkartendatum;
     protected $cvv;
+    protected $delete;
+    protected $speichern;
     
     public function __construct() {
         
@@ -78,6 +80,11 @@ class videospieleshopDBparameterKunden {
         $this->kreditkartennummer=filter_input(INPUT_GET, "kreditkartennummer", FILTER_DEFAULT, $options);
         $this->kreditkartendatum=filter_input(INPUT_GET, "kreditkartendatum", FILTER_DEFAULT,$options);
         $this->cvv=filter_input(INPUT_GET, "cvv", FILTER_DEFAULT,$options);
+        
+        $options=array("options" => array("default"=> "0"));
+        $this->delete=filter_input(INPUT_GET, "delete", FILTER_DEFAULT, $options);
+        
+        $this->speichern=filter_input(INPUT_GET, "speichern", FILTER_DEFAULT, $options);
        
         //var_dump($this);
     }
