@@ -160,26 +160,28 @@ for ($i=0; $i<sizeof($rows);$i++)
         }
     }
 
-//--------------------- Bis hier und dann noch...
+    //--------------------- Bis hier und dann noch...
 
-if($p->kaufen == 1)
-    {
+    if($p->kaufen == 1)
+        {
 
-        $gamekey = rand(0, 9) . rand(0, 9) .rand(0, 9) . rand(0, 9) . '-' . rand(0, 9) . rand(0, 9) .  rand(0, 9) .  rand(0, 9) .  '-' . rand(0, 9) . rand(0, 9) .  rand(0, 9) .  rand(0, 9) .  '-' . rand(0, 9) . rand(0, 9) .  rand(0, 9) .  rand(0, 9);
-        //var_dump($gamekey);
+            $gamekey = rand(0, 9) . rand(0, 9) .rand(0, 9) . rand(0, 9) . '-' . rand(0, 9) . rand(0, 9) .  rand(0, 9) .  rand(0, 9) .  '-' . rand(0, 9) . rand(0, 9) .  rand(0, 9) .  rand(0, 9) .  '-' . rand(0, 9) . rand(0, 9) .  rand(0, 9) .  rand(0, 9);
+            //var_dump($gamekey);
 
-        $sql = "insert into rechnungen (id_spiel, id_plattform, id_kunde, spielkey) values ('$idvideospiel', '$p->plattformsort', '$idkunde', '$gamekey')";
-        //echo $sql;
-        $pdo->exec ($sql);
-        $pdo->lastInsertId();
-        
-        echo "<div class='gekauftMeldung'>";
-        echo "<div class='KaufeErfolgreich'>Kauf erfolgreich!</div>";
-        echo "<div class='GameKey'>Ihr Game-Key: $gamekey</div>";
-        echo "<div class='GameKeyInfo'>Falls Sie Ihren Key verlieren, können Sie ihn auf der Profil-Seite unter Rechnungen nachlesen.</div>";
-        echo "</div>";
-    }   
+            $sql = "insert into rechnungen (id_spiel, id_plattform, id_kunde, spielkey) values ('$idvideospiel', '$p->plattformsort', '$idkunde', '$gamekey')";
+            //echo $sql;
+            $pdo->exec ($sql);
+            $pdo->lastInsertId();
+
+            echo "<div class='gekauftMeldung'>";
+            echo "<div class='KaufeErfolgreich'>Kauf erfolgreich!</div>";
+            echo "<div class='GameKey'>Ihr Game-Key: $gamekey</div>";
+            echo "<div class='GameKeyInfo'>Falls Sie Ihren Key verlieren, können Sie ihn auf der Profil-Seite unter Rechnungen nachlesen.</div>";
+            echo "</div>";
+        }   
     
+    echo "<div class='ui-grid-b'>";
+        
     echo "<img class='bildlinkKaufInhalt' src='$bildlink'>";
     
     echo "<div class='kaufContainer'>";
@@ -221,18 +223,19 @@ if($p->kaufen == 1)
     echo "<div class='kundekreditkartennummerKauf'><b>Kartennummer</b></div>";
     echo "<div class='kundekreditkartennummerKaufInhalt'>**** **** **** $KundeKartennummerGeheim</div>";
    
-if( isset($_SESSION['userid'])) {
-            echo "<div class='kaufenKauf'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort&kaufen=1'>Kauf bestätigen</button></a></div>";
-            echo "<div class='KaufAGBs'> *beim Click auf den 'Kauf bestätigen'-Button erklären Sie sich einverstanden mit unseren AGBs und verkaufen uns Ihre Seele.</div>";
-        }
-        else {
-             echo "<div class='keineAnmeldung'> Bitte melden Sie sich an, um einen Kauf abzuschließen</div>";
-        }    
-  //  var_dump($rows[$i]);
-}
-      
-echo "<div class='buttons'>";
-echo "<a <button class='buttonNavigationKauf' href='index.php?plattformsort=$p->plattformsort'><spanA>Zurück</spanA></button></a>";
-echo "</div>";
-echo "</div>";
+    if( isset($_SESSION['userid'])) {
+                echo "<div class='kaufenKauf'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort&kaufen=1'>Kauf bestätigen</button></a></div>";
+                echo "<div class='KaufAGBs'> *beim Click auf den 'Kauf bestätigen'-Button erklären Sie sich einverstanden mit unseren AGBs und verkaufen uns Ihre Seele.</div>";
+            }
+            else {
+                 echo "<div class='keineAnmeldung'> Bitte melden Sie sich an, um einen Kauf abzuschließen</div>";
+            }    
+      //  var_dump($rows[$i]);
+    }
+
+    echo "<div class='buttons'>";
+    echo "<a <button class='buttonNavigationKauf' href='index.php?plattformsort=$p->plattformsort'><spanA>Zurück</spanA></button></a>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
 ?>

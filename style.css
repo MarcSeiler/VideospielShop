@@ -7,10 +7,14 @@ body
 /*----------------------------------------------------*/
 
 ul {
+  position: sticky;
+  top: 8px;
+  background-color: #444;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  z-index: 900;
 }
 
 li {
@@ -33,6 +37,8 @@ li a:hover:not(.active) {
 .active {
   background-color: lightgray;
   color: black;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 /*----------------------------------------------------*/
@@ -194,10 +200,6 @@ li a:hover:not(.active) {
   opacity: 1;
   right: 0;
 }
-
-/*--------------------------------------*/
-
-/*--------------------------------------*/
 
 /*--------------------------------------*/
 
@@ -402,7 +404,6 @@ img
     float: left;
     left: 10%;
     margin-top: 20px;
-    margin-left: 120px;
     margin-bottom: 20px;
     max-width: 600px;
 }
