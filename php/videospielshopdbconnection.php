@@ -219,18 +219,16 @@ class VideospielshopDBConnection {
             {
                 $passwort_hash = password_hash('marc', PASSWORD_DEFAULT);
                 $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('marc.seiler@siemens-energy.com', '$passwort_hash', 'Marc', 'Seiler', '0012033488765543', '12/24', '447')";
-                echo $sql;
-                self::$pdo->exec ($sql);
-                self::$pdo->lastInsertId();
-                
-                /*
-                $passwort_hash = password_hash('moritz', PASSWORD_DEFAULT);
-                $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('moritz.popp@siemens.com', '$passwort_hash', 'Moritz', 'Popp', '0111023300768812', '04/25, '737')";
                 //echo $sql;
                 self::$pdo->exec ($sql);
-                return self::$pdo->lastInsertId();
-                
-                /*
+                self::$pdo->lastInsertId();
+                                
+                $passwort_hash = password_hash('moritz', PASSWORD_DEFAULT);
+                $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('moritz.popp@siemens.com', '$passwort_hash', 'Moritz', 'Popp', '0111023300768812', '04/25', '737')";
+                //echo $sql;
+                self::$pdo->exec ($sql);
+                self::$pdo->lastInsertId();
+              
                 $passwort_hash = password_hash('fabian', PASSWORD_DEFAULT);
                 $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('fabian.mayer@siemens.com', '$passwort_hash', 'Fabian', 'Mayer', '0111024408812807', '12/24', '900')";
                 //echo $sql;
@@ -248,8 +246,6 @@ class VideospielshopDBConnection {
                 //echo $sql;
                 self::$pdo->exec ($sql);
                 return self::$pdo->lastInsertId();
-                 * *
-                 */
             }
             else
             {
