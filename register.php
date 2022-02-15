@@ -133,7 +133,7 @@ if(isset($_GET['register'])) {
         $statement = $pdo->prepare("INSERT INTO users (email, passwort, kreditkartennummer, vorname, nachname, cvv, kreditkartendatum) VALUES (:email, :passwort, :kreditkartennummer, :vorname, :nachname, :cvv, :kreditkartendatum)");
         $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash, 'kreditkartennummer'=>$cardnum, 'vorname'=>$vorname, 'nachname'=>$nachname, 'cvv'=>$cvv, 'kreditkartendatum'=>$date));        
         if($result) {        
-                  header("Location: index.php");
+                  header("Location: login.php");
        
             $showFormular = false;
         } else {
