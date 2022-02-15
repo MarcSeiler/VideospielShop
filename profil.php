@@ -134,7 +134,8 @@ session_start();
                 from rechnungen as r
                 join users as u on u.id = r.id_kunde
                 join videospiele as v on v.id = r.id_spiel
-                where u.id = {$KundeID}";
+                where u.id = {$KundeID}
+                order by r.kaufdatum desc";
         //echo $sql;
         try
         {
