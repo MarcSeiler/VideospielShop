@@ -34,6 +34,7 @@ CREATE TABLE if not exists users (
   PRIMARY KEY (id), UNIQUE (email)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 select * from users;
+select * from users where email = 'root@root.de';
 
 /*
 select id from users where email = 'root@root.de';
@@ -50,6 +51,14 @@ CREATE TABLE IF NOT EXISTS rechnungen (
     kaufdatum TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ); 
 select * from rechnungen;
+
+select v.titel, r.id_plattform, u.email, r.spielkey, r.kaufdatum
+from rechnungen as r
+join users as u on u.id = r.id_kunde
+join videospiele as v on v.id = r.id_spiel
+where u.id = 1;
+
+
 /* 
 insert into rechnungen (id_spiel, id_plattform, id_kunde, spielkey) values ('1', '3', '2', '1234-1234-5678-5678');
 
