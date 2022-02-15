@@ -176,7 +176,7 @@ for ($i=0; $i<sizeof($rows);$i++)
             echo "<div class='gekauftMeldung'>";
             echo "<div class='KaufeErfolgreich'>Kauf erfolgreich!</div>";
             echo "<div class='GameKey'>Ihr Game-Key: $gamekey</div>";
-            echo "<div class='GameKeyInfo'>Falls Sie Ihren Key verlieren, können Sie ihn auf der Profil-Seite unter Rechnungen nachlesen.</div>";
+            echo "<div class='GameKeyInfo'>Falls Sie Ihren Key verlieren, können Sie ihn auf der Profil-Seite unter Einkaufsverlauf nachlesen.</div>";
             echo "</div>";
         }   
     

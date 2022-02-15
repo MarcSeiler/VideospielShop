@@ -12,11 +12,6 @@ session_start();
         </body>
 </html>
 
-
-
-
-
-
 <?php
 if(isset($_SESSION['userid'])) {
 
@@ -78,47 +73,31 @@ if(isset($_SESSION['userid'])) {
                 $KundeCVV = $v;
             }
         }
-    }        
-           
-    echo "<form>\n";
-    echo "<table border=1>\n";
-    echo "<tr>\n";
-    echo "<tr>\n";
-    echo "<td>E-Mail:</td>";
-    echo "<td><input type='email' maxlength='255' placeholder='max@mustermann.de' name='email' value='$KundeEmail'></td>";
-    echo "</tr>\n";
-    echo "<tr>\n";
-    echo "<td>Passwort:</td>";
-    echo "<td><input type='text' maxlength='255' placeholder='Neues Passwort (Klartext)' name='passwort' value='$KundePasswort'></td>";
-    echo "</tr>\n";
-    echo "<tr>\n";
-    echo "<td>Vorname:</td>";
-    echo "<td><input type='text' maxlength='255' name='vorname' value='$KundeVorname'></td>";
-    echo "</tr>\n";
-    echo "<tr>\n";
-    echo "<td>Nachname:</td>";
-    echo "<td><input type='text' maxlength='255' name='nachname' value='$KundeNachname'></td>";
-    echo "</tr>\n";
-    echo "<tr>\n";
-    echo "<td>Kreditkartennummer:</td>";
-    echo "<td><input type='number' maxlength='16' name='kreditkartennummer' value='$KundeKartennummer'></td>";
-    echo "</tr>\n";
-    echo "<tr>\n";
-    echo "<td>Kreditkartendatum:</td>";
-    echo "<td><input type='text' maxlength='5' placeholder='MM/YY' name='kreditkartendatum' value='$KundeKartendatum'></td>";
-    echo "</tr>\n";
-    echo "<tr>\n";
-    echo "<td>CVV:</td>";
-    echo "<td><input type='number' maxlength='3' name='cvv' value='$KundeCVV'></td>";
-    echo "</tr>\n";
-
-    echo "</tr>\n";
-    echo "</table>\n";
-    echo"</form>\n";
+    }      
+    
+    echo "<div class='kundeEmailKauf'><b>Email</b></div>";
+    echo "<div class='kundeEmailKaufInhalt'>$KundeEmail</div>";
+    
+    echo "<div class='kundeVornameKauf'><b>Passwort (Hash)</b></div>";
+    echo "<div class='kundeVornameKaufInhalt'>$KundePasswort</div>";
+    
+    echo "<div class='kundeVornameKauf'><b>Vorname</b></div>";
+    echo "<div class='kundeVornameKaufInhalt'>$KundeVorname</div>";
+    
+    echo "<div class='kundeNachnameKauf'><b>Nachname</b></div>";
+    echo "<div class='kundeNachnameKaufInhalt'>$KundeNachname</div>";
+    
+    echo "<div class='kundekreditkartennummerKauf'><b>Kartennummer</b></div>";
+    echo "<div class='kundekreditkartennummerKaufInhalt'>$KundeKartennummer</div>";
+    
+    echo "<div class='kundekreditkartennummerKauf'><b>Kartendatum</b></div>";
+    echo "<div class='kundekreditkartennummerKaufInhalt'>$KundeKartendatum</div>";
+    
+    echo "<div class='kundekreditkartennummerKauf'><b>CVV</b></div>";
+    echo "<div class='kundekreditkartennummerKaufInhalt'>$KundeCVV</div>";
     
 
     echo "<div class='buttons'>";
-    echo "<div class='SpeichernKunde'> <a <button class='SpeichernKunde' href='profil.php?speichern=1'>Änderungen speichern</button></a></div>";
     echo "<div class='DeleteKunde'> <a <button class='DeleteKunde' href='profil.php?delete=1'>Profil löschen</button></a></div>";
 
     echo "<a <button class='buttonNavigationKauf' href='index.php?plattformsort=1'><spanA>Zurück</spanA></button></a>";
@@ -130,12 +109,7 @@ if(isset($_SESSION['userid'])) {
         $res=$dbconn->exec($sql);
         header("Location: logout.php");
     }
-    //TODO: MAYBE HIER WEITER HILFE
-    if ($p->action=="speichern")
-    {
-        $dbconn->savekunde($KundeID, $KundeEmail, $KundePasswort, $KundeEmail, $KundeNachname, $KundeKartennummer, $KundeKartendatum, $KundeCVV);
-    }
-    
+
     //Rechnungen
     $sql=   "select v.titel, r.id_plattform, u.email, r.spielkey, r.kaufdatum
             from rechnungen as r
@@ -153,7 +127,7 @@ if(isset($_SESSION['userid'])) {
     }
     $rows=$res->fetchall();
     //var_dump($rows);
-    
+    echo "<div class='Einkaufsverlauf'><b>Einkaufsverlauf</b></div>";
     
     echo "<table class='styled-table'>";
      echo "<thead>";
@@ -208,29 +182,16 @@ if(isset($_SESSION['userid'])) {
                 //var_dump($Kaufdatum);
             }
         }
-        
-
-
-
-                 echo "<tr>";
-                     echo "<td>$titel</td>";
-                     echo "<td>$plattform</td>";
-                     echo "<td>$KundeEmail</td>";
-                     echo "<td>$SpielKey</td>";
-                     echo "<td>$Kaufdatum</td>";
-                 echo "</tr>";
-
-        
-        
-        
-        
-        
-        
+                echo "<tr>";
+                    echo "<td>$titel</td>";
+                    echo "<td>$plattform</td>";
+                    echo "<td>$KundeEmail</td>";
+                    echo "<td>$SpielKey</td>";
+                    echo "<td>$Kaufdatum</td>";
+                echo "</tr>";      
     }        
-                 echo "</tbody>";
-         echo "</table>";
-    
-    
+        echo "</tbody>";
+    echo "</table>";   
 }
 ?>
 
