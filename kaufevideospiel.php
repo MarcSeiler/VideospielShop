@@ -151,7 +151,13 @@ session_start();
                     $KundeKartennummer = $v;
                     $arr1 = str_split($v, 12);
                     //var_dump($arr1[1]);
-                    $KundeKartennummerGeheim = $arr1[1];
+                    if(strlen($KundeKartennummer) == 16)
+                    {
+                        $KundeKartennummerGeheim = $arr1[1];
+                    }else
+                    {
+                        $KundeKartennummerGeheim = 'error';
+                    }
                     //var_dump($KundeKartennummerGeheim);
                 }
             }

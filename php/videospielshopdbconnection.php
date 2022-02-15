@@ -215,31 +215,81 @@ class VideospielshopDBConnection {
         //echo $id;
         if ($id == -1)
         {   
-            $sql = "select * from users where email = '$email'"; 
-            try
+            if($vorname == 666)
             {
-                $res=$pdo->query($sql,PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-
-                echo 'Abfrage fehlgeschlagen: ' . $e->getMessage();
-                die();       
-            }
-            $rows=$res->fetchall();
-            
-            if(sizeof($rows) == 0)
-            {
-                $sql = "insert into users (plattform, titel, beschreibung, preis, erscheinungsdatum, bildlink) values ('$plattform', '$titel', '$beschreibung', '$preis', '$erscheinungsdatum', '$bildlink')";
+                $passwort_hash = password_hash('marc', PASSWORD_DEFAULT);
+                $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('marc.seiler@siemens-energy.com', '$passwort_hash', 'Marc', 'Seiler', '0012033488765543', '12/24', '447')";
+                echo $sql;
+                self::$pdo->exec ($sql);
+                self::$pdo->lastInsertId();
+                
+                /*
+                $passwort_hash = password_hash('moritz', PASSWORD_DEFAULT);
+                $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('moritz.popp@siemens.com', '$passwort_hash', 'Moritz', 'Popp', '0111023300768812', '04/25, '737')";
                 //echo $sql;
                 self::$pdo->exec ($sql);
-                return self::$pdo->lastInsertId();   
+                return self::$pdo->lastInsertId();
+                
+                /*
+                $passwort_hash = password_hash('fabian', PASSWORD_DEFAULT);
+                $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('fabian.mayer@siemens.com', '$passwort_hash', 'Fabian', 'Mayer', '0111024408812807', '12/24', '900')";
+                //echo $sql;
+                self::$pdo->exec ($sql);
+                self::$pdo->lastInsertId();
+                
+                $passwort_hash = password_hash('alex', PASSWORD_DEFAULT);
+                $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('alexander.henning@siemens-energy.com', '$passwort_hash', 'Alexander', 'Henning', '0510215007608875', '12/24', '334')";
+                //echo $sql;
+                self::$pdo->exec ($sql);
+                self::$pdo->lastInsertId();
+                
+                $passwort_hash = password_hash('lucifer', PASSWORD_DEFAULT);
+                $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('lucifer.teufel@derleibhaftige.com', '$passwort_hash', 'Lucifer', 'Teufel', '6666666666666666', '06/66', '666')";
+                //echo $sql;
+                self::$pdo->exec ($sql);
+                return self::$pdo->lastInsertId();
+                 * *
+                 */
             }
-            else {
-                echo "<div class='EmailVegeben'>Email wurde schon vergeben!</div>";
-            }            
+            else
+            {
+                $sql = "select * from users where email = '$email'"; 
+                try
+                {
+                    $res=self::$pdo->query($sql,PDO::FETCH_ASSOC);
+                } catch (PDOException $e) {
+
+                    echo 'Abfrage fehlgeschlagen: ' . $e->getMessage();
+                    die();       
+                }
+                $rows=$res->fetchall();
+
+                if(sizeof($rows) == 0)
+                {
+                    $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
+                    $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('$email', '$passwort_hash', '$vorname', '$nachname', '$kreditkartennummer', '$kreditkartendatum', '$cvv')";
+                    //echo $sql;
+                    self::$pdo->exec ($sql);
+                    return self::$pdo->lastInsertId();   
+                }
+                else {
+                    echo "<div class='EmailVegeben'>Email wurde schon vergeben!</div>";
+                }   
+            }
         }
         else
         {
-            $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
+            $arr1 = str_split($passwort, 7);
+            //var_dump($arr1[0]);
+            //var_dump($arr1[1]);
+            if(!($arr1[0] == '$2y$10$'))
+            {
+                $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
+            }
+            else
+            {
+                $passwort_hash = $passwort;
+            }
             
             $sql = "update users set email = '$email'";
             

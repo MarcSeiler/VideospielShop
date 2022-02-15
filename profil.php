@@ -5,7 +5,7 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <title>BEAM</title>
-        <link rel="stylesheet" href="Style.css">
+        <link rel="stylesheet" href="style.css">
         <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">        
         </head>
         <body> 
