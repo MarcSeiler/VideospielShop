@@ -486,39 +486,118 @@ p2, p4, p6, p8, p10, p12
 /*----------------------------------------------------*/
 /*Rechnungen*/
 /*----------------------------------------------------*/
-.styled-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+.profilContainer
+{
+    background-color: lightgray;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+    padding: 20px;
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-top: 50px;
+    border-radius: 10px;
 }
 
-.styled-table thead tr {
-    background-color: #009879;
+.profilButtons
+{
+    padding-top: 20px;
+    line-height: 70px;
+}
+
+.deleteKunde
+{
+    background-color: #333;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition-duration: 0.5s;
+}
+
+.deleteKunde:hover
+{
+    background-color: c24747;
+}
+
+.profilZurück
+{
+    background-color: #333;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition-duration: 0.5s;
+}
+
+.profilZurück:hover
+{
+    background-color: #555;
+}
+
+.Einkaufsverlauf
+{
+    background-color: lightgray;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+.tabellenContainer
+{
+    margin-left: 250px;
+    margin-right: 250px;
+    
+}
+
+.styled-table
+{
+    border-collapse: collapse;
+    font-size: 15px;
+    font-family: sans-serif;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.styled-table thead tr
+{
+    background-color: #4CAF50;
     color: #ffffff;
     text-align: left;
+    
 }
 
 .styled-table th,
-.styled-table td {
+.styled-table td
+{
     padding: 12px 15px;
 }
 
-.styled-table tbody tr {
+.styled-table tbody tr
+{
     border-bottom: 1px solid #dddddd;
 }
 
-.styled-table tbody tr:nth-of-type(even) {
+.styled-table tbody tr:nth-of-type(even)
+{
     background-color: lightgray;
 }
 
-.styled-table tbody tr:nth-of-type(odd) {
+.styled-table tbody tr:nth-of-type(odd)
+{
     background-color: #f1f1f1;
 }
 
-.styled-table tbody tr:last-of-type {
+.styled-table tbody tr:last-of-type
+{
     border-bottom: 2px solid #009879;
 }
 /*----------------------------------------------------*/

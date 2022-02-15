@@ -8,7 +8,23 @@ session_start();
         <link rel="stylesheet" href="style.css">
         <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">        
         </head>
-        <body> 
+        <body>
+            <ul>
+                <li style="float:left"><a class="active"href="index.php">BEAM</a></li>
+                <li><a href="impressum.php">Impressum</a></li>
+                
+                <?php
+                    if(!isset($_SESSION['userid'])) {
+                        echo '<li><a href="register.php">Registrieren</a></li>';
+                        echo '<li><a href="login.php">Login</a></li>';
+                        
+                    }               
+                    else { 
+                        echo '<li><a href="logout.php">Logout</a></li>';
+                    }
+                                                           
+                ?>
+            </ul>
         </body>
 </html>
 
@@ -76,6 +92,7 @@ session_start();
             }
         }      
 
+        echo "<div class='profilContainer'>";
         echo "<div class='kundeEmailKauf'><b>Email</b></div>";
         echo "<div class='kundeEmailKaufInhalt'>$KundeEmail</div>";
 
@@ -96,13 +113,15 @@ session_start();
 
         echo "<div class='kundekreditkartennummerKauf'><b>CVV</b></div>";
         echo "<div class='kundekreditkartennummerKaufInhalt'>$KundeCVV</div>";
-
-        echo "<div class='buttons'>";
-        echo "<div class='DeleteKunde'> <a <button class='DeleteKunde' href='profil.php?delete=1'>Profil löschen</button></a></div>";
-
-        echo "<a <button class='buttonNavigationKauf' href='index.php?plattformsort=1'><spanA>Zurück</spanA></button></a>";
-        echo "</div>";  
-
+        
+        echo "<div class='profilButtons'>";
+        echo "<a <button class='deleteKunde' href='profil.php?delete=1'>Profil löschen</button></a></div>";
+        echo "<a <button class='profilZurück' href='index.php?plattformsort=1'><spanA>Zurück</spanA></button></a>";
+        echo "</div>"; 
+        
+        echo "</div>";
+        
+        
         if($p->delete == '1')
         {
             $sql = "delete from users where email = '{$_SESSION['useremail']}'";
@@ -127,6 +146,8 @@ session_start();
         }
         $rows=$res->fetchall();
         //var_dump($rows);
+        echo "<div class='tabellenContainer'>";
+        
         echo "<div class='Einkaufsverlauf'><b>Einkaufsverlauf</b></div>";
 
         echo "<table class='styled-table'>";
@@ -192,6 +213,8 @@ session_start();
         }        
             echo "</tbody>";
         echo "</table>";   
+        
+        echo "</div>";
     }
 ?>
 
