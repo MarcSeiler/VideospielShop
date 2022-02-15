@@ -1,0 +1,603 @@
+body
+{
+  background-color: #333;
+}
+
+/*Navigation Bar*/
+/*----------------------------------------------------*/
+
+ul {
+  position: sticky;
+  top: 8px;
+  background-color: #444;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 900;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: lightgray;
+  color: black;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/*----------------------------------------------------*/
+
+/*Index*/
+/*----------------------------------------------------*/
+
+.buttons
+{
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+/*-------------------------------------*/
+
+.buttonPS
+{
+  background-color: lightgray;
+  font-size: 24px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+
+}
+
+.buttonPS:hover
+{
+  background-color: #4c63af;
+  color: white;
+}
+
+/*-------------------------------------*/
+
+.buttonXB
+{
+  background-color: lightgray;
+  font-size: 24px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+
+}
+
+.buttonXB:hover
+{
+  background-color: #4CAF50;
+  color: white;
+}
+
+/*--------------------------------------*/
+
+.buttonPC
+{
+  background-color: lightgray;
+  font-size: 24px;
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+
+}
+
+.buttonPC:hover
+{
+  background-color: #c24747;
+  color: white;
+}
+
+/*--------------------------------------*/
+
+.buttonNavigation
+{
+  background-color: lightgray;
+  font-size: 16px;
+  text-decoration: none;
+  border: none;
+  color: #333;
+  padding: 5px 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5px;
+  margin: 5px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  width: 75px;
+}
+
+/*--------------------------------------*/
+
+.buttonNavigation spanA {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonNavigation spanA:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.buttonNavigation:hover spanA {
+  padding-left: 25px;
+}
+
+.buttonNavigation:hover spanA:after {
+  opacity: 1;
+  left: 0;
+}
+
+/*--------------------------------------*/
+
+.buttonNavigation spanE {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonNavigation spanE:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonNavigation:hover spanE {
+  padding-right: 25px;
+}
+
+.buttonNavigation:hover spanE:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*--------------------------------------*/
+
+
+/*----------------------------------------------------*/
+
+.ui-grid-b
+{
+  /*background-color: turquoise;*/
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  width: 800px;
+  margin: auto;
+}
+
+
+.button-wrap
+{
+    display: grid;
+    background-color: black;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    transition-duration: 0.5s;
+}
+
+.button-wrap:hover
+{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0), 0 12px 40px 0 rgba(0, 0, 0);
+}
+
+.ui-btn
+{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    line-height: 2;
+    color: transparent;
+    transition-duration: 0.5s;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.ui-btn:hover
+{
+    color: white;
+    font-size: 20px;
+    
+}
+
+.container
+{
+    position: relative;
+    bottom: 300px;
+    height: 120px;
+    cursor: default;
+}
+
+.preisLinkRed
+{
+    position: relative;
+    bottom: 170px;
+    text-decoration: none;
+    color: lightgray;
+    background-color: #c24747;
+    padding: 5px;
+    padding-right: 50px;
+    padding-left: 50px;
+    opacity: 0.9;
+}
+.preisLinkBlue
+{
+    position: relative;
+    bottom: 170px;
+    text-decoration: none;
+    color: lightgray;
+    background-color: #4c63af;
+    padding: 5px;
+    padding-right: 50px;
+    padding-left: 50px;
+    opacity: 0.9;
+}
+.preisLinkGreen
+{
+    position: relative;
+    bottom: 170px;
+    text-decoration: none;
+    color: lightgray;
+    background-color: #4CAF50;
+    padding: 5px;
+    padding-right: 50px;
+    padding-left: 50px;
+    opacity: 0.9;
+}
+
+.preisLinkUnterklasse
+{
+    position: relative;
+    text-decoration: none;
+    color: lightgray;
+    padding: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
+.preisNormaloRed
+{
+    position: relative;
+    bottom: 170px;
+    text-decoration: none;
+    color: white;
+    background-color: #c24747;
+    padding: 5px;
+    opacity: 0.9;
+}
+.preisNormaloBlue
+{
+    position: relative;
+    bottom: 170px;
+    text-decoration: none;
+    color: white;
+    background-color: #4c63af;
+    padding: 5px;
+    opacity: 0.9;
+}
+.preisNormaloGreen
+{
+    position: relative;
+    bottom: 170px;
+    text-decoration: none;
+    color: white;
+    background-color: #4CAF50;
+    padding: 5px;
+    opacity: 0.9;
+}
+
+img
+{
+    max-width: 300px;
+    background-color: black;
+    opacity: 0.7;
+}
+
+
+/*Color Square*/
+/*----------------------------------------------------*/
+.squareRed
+{
+    height: 15px;
+    background-color: #c24747;
+    border: none;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+.squareBlue
+{
+    height: 15px;
+    background-color: #4c63af;
+    border: none;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+.squareGreen
+{
+    height: 15px;
+    background-color: #4CAF50;
+    border: none;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+/*----------------------------------------------------*/
+
+/*KaufeVideospiel*/
+/*----------------------------------------------------*/
+
+.kaufContainer
+{
+    float: left;
+    right: 10%;
+    text-align: left;
+    background-color: lightgray;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 600px;
+    height: 560px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: auto;
+}
+
+.bildlinkKaufInhalt
+{
+    float: left;
+    left: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.kaufenKauf
+{
+    text-align: center;
+    background-color: black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    transition-duration: 0.5s;
+}
+
+.kaufenKauf:hover
+{
+    background-color: #333;
+    
+}
+
+.kaufAGBs
+{
+    font-size: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.buttons
+{
+    margin-top: 80px;
+}
+
+.gekauftMeldung
+{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+/*----------------------------------------------------*/
+
+/*Impressum*/
+/*----------------------------------------------------*/
+.text
+{
+  color: lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1
+{
+  padding-bottom: 50px;
+}
+
+p1, p3, p5, p7, p9, p11
+{
+  font-size: x-large;
+  line-height: 1;
+  color: white;
+}
+
+p2, p4, p6, p8, p10, p12
+{
+  font-size: large;
+  line-height: 1.5;
+}
+/*----------------------------------------------------*/
+/*Rechnungen*/
+/*----------------------------------------------------*/
+
+.profilContainer
+{
+    background-color: lightgray;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+    padding: 20px;
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.profilButtons
+{
+    padding-top: 20px;
+    line-height: 70px;
+}
+
+.deleteKunde
+{
+    background-color: #333;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition-duration: 0.5s;
+}
+
+.deleteKunde:hover
+{
+    background-color: c24747;
+}
+
+.profilZurück
+{
+    background-color: #333;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition-duration: 0.5s;
+}
+
+.profilZurück:hover
+{
+    background-color: #555;
+}
+
+.Einkaufsverlauf
+{
+    background-color: lightgray;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+.tabellenContainer
+{
+    margin-left: 250px;
+    margin-right: 250px;
+    
+}
+
+.styled-table
+{
+    border-collapse: collapse;
+    font-size: 15px;
+    font-family: sans-serif;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.styled-table thead tr
+{
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-align: left;
+    
+}
+
+.styled-table th,
+.styled-table td
+{
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr
+{
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even)
+{
+    background-color: lightgray;
+}
+
+.styled-table tbody tr:nth-of-type(odd)
+{
+    background-color: #f1f1f1;
+}
+
+.styled-table tbody tr:last-of-type
+{
+    border-bottom: 2px solid #009879;
+}
+/*----------------------------------------------------*/

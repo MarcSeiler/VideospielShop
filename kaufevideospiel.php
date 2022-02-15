@@ -6,7 +6,7 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <title>Kaufen</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
         <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
         
         <script src="Login.js" type="text/javascript" language="javascript"></script>

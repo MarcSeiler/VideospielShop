@@ -35,7 +35,7 @@ if(isset($_GET['login'])) {
                 <li><a href="register.php">Registrieren</a></li>
                 
     </ul>
- <link rel="stylesheet" href="register.css">  
+ <link rel="stylesheet" href="css/register.css">  
 </head> 
 <body>
  

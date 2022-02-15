@@ -104,8 +104,5 @@ class kundenview {
         echo "<input type='submit' name='home' value='Home'>\n";
 
         echo"</form>\n";
-    }
-    
-    
-    
+    }   
 }

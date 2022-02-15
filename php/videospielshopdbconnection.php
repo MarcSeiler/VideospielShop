@@ -15,10 +15,14 @@ class VideospielshopDBConnection {
     protected static $pdo = null;
 
     public function __construct() {
+        
+        
         $dbhost = "localhost";
         $dbname = "videospielshop";
         $dbuser = "root";
         $dbpassword = ""; 
+        
+        
         if (VideospielshopDBConnection::$pdo == null)
         {
             try {
@@ -219,31 +223,31 @@ class VideospielshopDBConnection {
             {
                 $passwort_hash = password_hash('marc', PASSWORD_DEFAULT);
                 $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('marc.seiler@siemens-energy.com', '$passwort_hash', 'Marc', 'Seiler', '0012033488765543', '12/24', '447')";
-                //echo $sql;
+                echo $sql;
                 self::$pdo->exec ($sql);
                 self::$pdo->lastInsertId();
                                 
                 $passwort_hash = password_hash('moritz', PASSWORD_DEFAULT);
                 $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('moritz.popp@siemens.com', '$passwort_hash', 'Moritz', 'Popp', '0111023300768812', '04/25', '737')";
-                //echo $sql;
+                echo $sql;
                 self::$pdo->exec ($sql);
                 self::$pdo->lastInsertId();
               
                 $passwort_hash = password_hash('fabian', PASSWORD_DEFAULT);
                 $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('fabian.mayer@siemens.com', '$passwort_hash', 'Fabian', 'Mayer', '0111024408812807', '12/24', '900')";
-                //echo $sql;
+                echo $sql;
                 self::$pdo->exec ($sql);
                 self::$pdo->lastInsertId();
                 
                 $passwort_hash = password_hash('alex', PASSWORD_DEFAULT);
                 $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('alexander.henning@siemens-energy.com', '$passwort_hash', 'Alexander', 'Henning', '0510215007608875', '12/24', '334')";
-                //echo $sql;
+                echo $sql;
                 self::$pdo->exec ($sql);
                 self::$pdo->lastInsertId();
                 
                 $passwort_hash = password_hash('lucifer', PASSWORD_DEFAULT);
                 $sql = "insert into users (email, passwort, vorname, nachname, kreditkartennummer, kreditkartendatum, cvv) values ('lucifer.teufel@derleibhaftige.com', '$passwort_hash', 'Lucifer', 'Teufel', '6666666666666666', '06/66', '666')";
-                //echo $sql;
+                echo $sql;
                 self::$pdo->exec ($sql);
                 return self::$pdo->lastInsertId();
             }
