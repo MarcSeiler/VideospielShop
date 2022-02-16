@@ -6,8 +6,8 @@ drop table if exists videospiele;
 CREATE TABLE IF NOT EXISTS videospiele (
     id INT AUTO_INCREMENT PRIMARY KEY,
     plattform int not null,
-    titel VARCHAR(30) not null,
-    beschreibung VARCHAR(50),
+    titel VARCHAR(27) not null,
+    beschreibung VARCHAR(27),
     preis DECIMAL(10, 2) not null,
     erscheinungsdatum date,
     bildlink VARCHAR(50)
@@ -22,10 +22,10 @@ select * from videospiele where id = 1;
 Drop table if exists users;
 CREATE TABLE if not exists users ( 
   id INT NOT NULL AUTO_INCREMENT ,
-  email VARCHAR(255) NOT NULL ,
+  email VARCHAR(70) NOT NULL ,
   passwort VARCHAR(255) NOT NULL ,
-  vorname VARCHAR(255) NOT NULL DEFAULT '' ,
-  nachname VARCHAR(255) NOT NULL DEFAULT '' ,
+  vorname VARCHAR(30) NOT NULL DEFAULT '' ,
+  nachname VARCHAR(35) NOT NULL DEFAULT '' ,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   updated_at TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   kreditkartennummer VARCHAR(16) not null,

@@ -163,12 +163,12 @@ if($showFormular) {
     <div class="loginform">
 <form action="?register=1" method="post">
     Vorname:<br>
-    <input type="text" size="40" maxlength="250" name="vorname"><br><br>
+    <input type="text" size="40" maxlength="30" name="vorname"><br><br>
  Nachname:<br>
-<input type="text" size="40" maxlength="250" name="nachname"><br><br>
+<input type="text" size="40" maxlength="35" name="nachname"><br><br>
  
 E-Mail:<br>
-<input type="email" size="40" maxlength="250" name="email"><br><br>
+<input type="email" size="40" maxlength="70" name="email"><br><br>
  
 Kreditkarte: <br>
 <input type="text" size="20" maxlength="16" minlength="16" name="cardnum" placeholder="Nummer ohne Leerzeichen eingeben">
