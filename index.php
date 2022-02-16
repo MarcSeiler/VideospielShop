@@ -34,8 +34,7 @@ session_start();
                             echo "<li><a <button class='buttonUserCreate' href='editkunden.php'>Kunden bearbeiten</button></a></li>";
                             echo "<li><a <button class='buttonVideogamesCreate' href='editvideospiele.php'>Videospiele bearbeiten</button></a></li>";
                         }
-                    }
-                    
+                    }                    
                 ?>
             </ul>
 
@@ -44,284 +43,191 @@ session_start();
                 <a <button class="buttonPS" onclick="href='index.php?limit=9&offset=0&action=first&plattformsort=2'">Playstation</button></a>
                 <a <button class="buttonXB" onclick="href='index.php?limit=9&offset=0&action=first&plattformsort=3'">Xbox</button></a>             
             </div>
-            
-
-            
-            
-               
-        <!--<form method="get" action="login.html">  
-        <button type="submit">Login</button>
-        </form>  
-        <form method="get" action="register.html">  
-        <button type="submit">Register</button>
-        </form>-->  
         </body>
-
-
-
-
 </html>
 
 <?php
 
-require_once("php\cls_Autoloader.php");
+    require_once("php\cls_Autoloader.php");
 
-$p = new videospieleshopDBparameter();
+    $p = new videospieleshopDBparameter();
 
-$dbconn = new VideospielshopDBConnection();
-$pdo=$dbconn->pdo;
+    $dbconn = new VideospielshopDBConnection();
+    $pdo=$dbconn->pdo;
 
-$p->limit = 9;
+    $p->limit = 9;
 
-$sql="select count(*) as anzahl from videospiele";
-//echo $sql;
-try
-{
-    $res=$pdo->query($sql,PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
+    $sql="select count(*) as anzahl from videospiele";
+    //echo $sql;
+    try
+    {
+        $res=$pdo->query($sql,PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
 
-    echo 'Abfrage fehlgeschlagen: ' . $e->getMessage();
-    die();       
-}
+        echo 'Abfrage fehlgeschlagen: ' . $e->getMessage();
+        die();       
+    }
 
+    $row=$res->fetch();
+    $anzahl=$row["anzahl"];
 
-$row=$res->fetch();
-$anzahl=$row["anzahl"];
+    //echo $p->action;
+    if ($p->action == "show")
+    {
+        $offset=$p->offset;
+    }
+    else if ($p->action == "first")
+    {
+        $offset=0;
+    }
+    else if ($p->action == "next")
+    {
+        $offset=$p->offset+$p->limit;
+        if ($offset > $anzahl)
+        {
+            $offset=$anzahl-$p->limit+1;
+            if ($offset<0)
+            {
+                $offset=0;
+            }
+        }
+    }
+    else if ($p->action == "previous")
+    {
+        $offset=$p->offset-$p->limit;
+        if ($offset<0)
+            $offset=0;
+    }
 
-
-//echo $p->action;
-if ($p->action == "show")
-{
-    $offset=$p->offset;
-}
-else if ($p->action == "first")
-{
-    $offset=0;
-}
-else if ($p->action == "next")
-{
-    $offset=$p->offset+$p->limit;
-    if ($offset > $anzahl)
+    else if ($p->action == "last")
     {
         $offset=$anzahl-$p->limit+1;
         if ($offset<0)
-        {
             $offset=0;
-        }
     }
-}
-else if ($p->action == "previous")
-{
-    $offset=$p->offset-$p->limit;
-    if ($offset<0)
-        $offset=0;
-}
 
-else if ($p->action == "last")
-{
-    $offset=$anzahl-$p->limit+1;
-    if ($offset<0)
-        $offset=0;
-}
-
-$plattform_cookie = "plattform_cookie";
-if(isset($_COOKIE[$plattform_cookie]) && $p->plattformsort == '0')
-{
-    //var_dump($_COOKIE[$plattform_cookie]);
-    $p->plattformsort = $_COOKIE[$plattform_cookie];
-}
-
-if($p->plattformsort == '1')
-{
-    setcookie($plattform_cookie, '1', time() + (3600 * 24), '/');
-    echo "<hr class='squareRed'></hr>";
-}
-else if($p->plattformsort == '2')
-{
-    setcookie($plattform_cookie, '2', time() + (3600 * 24), '/');
-    echo "<hr class='squareBlue'></hr>";
-}
-else if($p->plattformsort == '3')
-{
-    setcookie($plattform_cookie, '3', time() + (3600 * 24), '/');
-    echo "<hr class='squareGreen'></hr>";
-}
-
-
-
-/*
-if($p->plattformsort == '1')
-{
-    echo "<hr class='squareRed'></hr>";
-}
-else if($p->plattformsort == '2')
-{
-    echo "<hr class='squareBlue'></hr>";
-}
-else if($p->plattformsort == '3')
-{
-    echo "<hr class='squareGreen'></hr>";
-}
-*/
-
-
-
-$sql="select *, id from videospiele where plattform like '%{$p->plattformsort}%' order by id {$p->order} limit " . $offset . "," . $p->limit;
-//echo $sql;
-try
-{
-    $res=$pdo->query($sql,PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-
-    echo 'Abfrage fehlgeschlagen: ' . $e->getMessage();
-    die();       
-}
-
-
-//var_dump($res);
-$rows=$res->fetchall();
-//var_dump($rows);
-
-echo "<div class='ui-grid-b'>";
-
-for ($i=0; $i<sizeof($rows);$i++)
-{
-    echo "<div class='button-wrap'>";
-    echo "<div class='ui-btn'>";
-        
-    foreach ($rows[$i] as $k=>$v)
+    $plattform_cookie = "plattform_cookie";
+    if(isset($_COOKIE[$plattform_cookie]) && $p->plattformsort == '0')
     {
-            if($k == "id")
-            {
-                $id = $v;
-            }
-            else if($k == "titel")
-            {
-                $titel = $v;
-            }
-            else if($k == "beschreibung")
-            {
-                $beschreibung = $v;
-            }
-            else if($k == "preis")
-            {
-                $preis = $v;
-            }
-            else if($k == "erscheinungsdatum")
-            {
-                $erscheinungsdatum = $v;
-            }
-            else if($k == "bildlink")
-            {
-                $bildlink = $v;
-            }    
-    }    
-
-    echo "<img class='bildlink' src='$bildlink'>";
-    
-    
-    echo "<div class=container>";
-    echo "<div class='titel'>$titel</div>";
-    echo "<div class='beschreibung'>$beschreibung</div>";
-    echo "<div class='erscheinungsdatum'>Veröffentlichung: $erscheinungsdatum</div>";
-    echo "</div>";
-    
-    if( isset($_SESSION['userid'])) {
-        if($p->plattformsort == '1')
-        {
-            echo "<div class='preisLinkRed'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort'>Kaufen: $preis €</button></a></div>";   
-        }
-        else if($p->plattformsort == '2')
-        {
-            echo "<div class='preisLinkBlue'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort'>Kaufen: $preis €</button></a></div>";   
-        }
-        else
-        {
-            echo "<div class='preisLinkGreen'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort'>Kaufen: $preis €</button></a></div>";   
-        }   
-                              
+        //var_dump($_COOKIE[$plattform_cookie]);
+        $p->plattformsort = $_COOKIE[$plattform_cookie];
     }
-    else{
-        if($p->plattformsort == '1')
-        {
-            echo "<div class='preisNormaloRed'>$preis €</div>";
-        }
-        else if($p->plattformsort == '2')
-        {
-            echo "<div class='preisNormaloBlue'>$preis €</div>";
-        }
-        else
-        {
-            echo "<div class='preisNormaloGreen'>$preis €</div>";
-        }        
-    }
-    
-    
-    echo "</div>";
-    echo "</div>";
-  //  var_dump($rows[$i]);
-}
-echo "</div>";
 
-//<img src='./images/csgo.png' hier einfügen“>.
-
-
-echo "<div class='buttons'>";
-echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=0&action=first&plattformsort=$p->plattformsort'><spanA>Anfang</spanA></button></a>";
-echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=$offset&action=previous&plattformsort=$p->plattformsort'><<</button></a>";
-echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=$offset&action=next&plattformsort=$p->plattformsort'>>></button></a>";
-echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=$offset&action=last&plattformsort=$p->plattformsort'><spanE>Letzte</spanE></button></a>";
-echo "</div>";
-
-/*
-echo "<div class='ui-grid-b'>";
-
-//echo "<table border=1>";
-//$first=true;
-for ($i=0; $i<sizeof($rows);$i++)
-{
-    echo "<div class='button-wrap'>";
-    echo "<div class='ui-btn'>";
-        
-    echo "<div>";
-    foreach ($rows[$i] as $k=>$v)
+    if($p->plattformsort == '1')
     {
-            if($k == "id")
-            {
-                $id = $v;
-            }
-            else if ($k=="preis")
-            {
-                //TODO: BESCHREIBUNG BEI SPIELE EDIT
-                echo "<br>";
-                //echo "<td><a href=editmitarbeiter.php?mid=$v>edit</a></td>";
-                if( isset($_SESSION['userid'])) {
-                    echo "<a <button class='$k' href='kaufevideospiel.php?mid=$id'>$v €</button></a>";                         
+        setcookie($plattform_cookie, '1', time() + (3600 * 24), '/');
+        echo "<hr class='squareRed'></hr>";
+    }
+    else if($p->plattformsort == '2')
+    {
+        setcookie($plattform_cookie, '2', time() + (3600 * 24), '/');
+        echo "<hr class='squareBlue'></hr>";
+    }
+    else if($p->plattformsort == '3')
+    {
+        setcookie($plattform_cookie, '3', time() + (3600 * 24), '/');
+        echo "<hr class='squareGreen'></hr>";
+    }
+
+    $sql="select *, id from videospiele where plattform like '%{$p->plattformsort}%' order by id {$p->order} limit " . $offset . "," . $p->limit;
+    //echo $sql;
+    try
+    {
+        $res=$pdo->query($sql,PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+
+        echo 'Abfrage fehlgeschlagen: ' . $e->getMessage();
+        die();       
+    }
+
+
+    //var_dump($res);
+    $rows=$res->fetchall();
+    //var_dump($rows);
+
+    echo "<div class='ui-grid-b'>";
+
+    for ($i=0; $i<sizeof($rows);$i++)
+    {
+        echo "<div class='button-wrap'>";
+        echo "<div class='ui-btn'>";
+
+        foreach ($rows[$i] as $k=>$v)
+        {
+                if($k == "id")
+                {
+                    $id = $v;
                 }
-                else {
-                    echo "<div class='$k'>$v €</div>";   
-                    
-                }                
-            }
-            else if($k != "id" && $k != "bildlink" && $k != "plattform" && $k != "preis")
-            {
-                //var_dump($v);
+                else if($k == "titel")
+                {
+                    $titel = $v;
+                }
+                else if($k == "beschreibung")
+                {
+                    $beschreibung = $v;
+                }
+                else if($k == "preis")
+                {
+                    $preis = $v;
+                }
+                else if($k == "erscheinungsdatum")
+                {
+                    $erscheinungsdatum = $v;
+                }
+                else if($k == "bildlink")
+                {
+                    $bildlink = $v;
+                }    
+        }    
 
-                echo "<div class='$k'>$v</div>";
-            }
-            if($k == "bildlink")
+        echo "<img class='bildlink' src='$bildlink'>";
+
+        echo "<div class=container>";
+        echo "<div class='titel'>$titel</div>";
+        echo "<div class='beschreibung'>$beschreibung</div>";
+        echo "<div class='erscheinungsdatum'>Veröffentlichung: $erscheinungsdatum</div>";
+        echo "</div>";
+
+        if( isset($_SESSION['userid'])) {
+            if($p->plattformsort == '1')
             {
-                echo "<img class='$k' src='./$v'>";
+                echo "<div class='preisLinkRed'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort'>Kaufen: $preis €</button></a></div>";   
             }
-            echo "\n";     
-            
-    }    
-    
+            else if($p->plattformsort == '2')
+            {
+                echo "<div class='preisLinkBlue'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort'>Kaufen: $preis €</button></a></div>";   
+            }
+            else
+            {
+                echo "<div class='preisLinkGreen'> <a <button class='preisLinkUnterklasse' href='kaufevideospiel.php?mid=$id&plattformsort=$p->plattformsort'>Kaufen: $preis €</button></a></div>";   
+            }   
+
+        }
+        else{
+            if($p->plattformsort == '1')
+            {
+                echo "<div class='preisNormaloRed'>$preis €</div>";
+            }
+            else if($p->plattformsort == '2')
+            {
+                echo "<div class='preisNormaloBlue'>$preis €</div>";
+            }
+            else
+            {
+                echo "<div class='preisNormaloGreen'>$preis €</div>";
+            }        
+        }
+
+        echo "</div>";
+        echo "</div>";
+      //  var_dump($rows[$i]);
+    }
     echo "</div>";
+
+    echo "<div class='buttons'>";
+    echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=0&action=first&plattformsort=$p->plattformsort'><spanA>Anfang</spanA></button></a>";
+    echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=$offset&action=previous&plattformsort=$p->plattformsort'><<</button></a>";
+    echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=$offset&action=next&plattformsort=$p->plattformsort'>>></button></a>";
+    echo "<a <button class='buttonNavigation' href='index.php?limit=9&offset=$offset&action=last&plattformsort=$p->plattformsort'><spanE>Letzte</spanE></button></a>";
     echo "</div>";
-    echo "</div>";
-  //  var_dump($rows[$i]);
-}
-*/
- 
 ?>
