@@ -16,8 +16,7 @@ Einrichtung:
 4. Admin-Benutzer erstellen unter Registrieren: Wichtig: Email = root@root.de, den rest nach belieben
 
 5. Als Admin-Benutzer einloggen->
-
-5.5 Videospiele bearbeiten-/ und Kunden bearbeiten-Funktion auf index.php freigeschaltet
+    5.1 Videospiele bearbeiten-/ und Kunden bearbeiten-Funktion auf index.php freigeschaltet
 
 6. Auf die jeweilige neue Funktion clicken
 
