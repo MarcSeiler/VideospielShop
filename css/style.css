@@ -1,7 +1,6 @@
 body
 {
-  background-color: red;
-  /*333*/
+  background-color: #333;
 }
 
 ::-webkit-scrollbar {

@@ -56,7 +56,8 @@ select v.titel, r.id_plattform, u.email, r.spielkey, r.kaufdatum
 from rechnungen as r
 join users as u on u.id = r.id_kunde
 join videospiele as v on v.id = r.id_spiel
-where u.id = 1;
+where u.id = 1
+order by r.kaufdatum desc";
 
 insert into rechnungen (id_spiel, id_plattform, id_kunde, spielkey) values ('1', '3', '2', '1234-1234-5678-5678');
 /*
