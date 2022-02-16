@@ -62,11 +62,13 @@ if(isset($_GET['register'])) {
       if(strlen($date) == 0) {
         echo '<div class="date0"Bitte ein Datum angeben</div><br>';
         $error = true;
-    }else{
-                $arr1 = str_split($date, 2);
-    $arr2 = str_split($date, 3);
-    $teil = $arr1[0];
-    $teil2 = $arr2[1];
+    }
+    else
+    {
+        $arr1 = str_split($date, 2);
+        $arr2 = str_split($date, 3);
+        $teil = $arr1[0];
+        $teil2 = $arr2[1];
         if($teil>12 || $teil <= 0){
         echo'<div class="vorname0">Ihr Monat stimmt nicht </div>';
         $error=true;
