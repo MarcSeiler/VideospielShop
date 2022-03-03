@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <person id="1">
+    <name>loopback</name>
+    <nick>loopback</nick>
+    <ip>127.0.0.1</ip>
+  </person>
+
+  <person id="2">
+    <name>Werner Hofmann</name>
+    <nick>Brodwerscht</nick>
+    <ip>10.3.17.1</ip>
+  </person>
+
+  <person id="3">
+    <name>Gerd Flepsen</name>
+    <nick>Sauergraud</nick>
+    <ip>10.3.17.16</ip>
+  </person>
+
+  
+</data>
